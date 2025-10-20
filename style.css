@@ -1,0 +1,26 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#canvas-jogo{
+	display: block;
+	margin: 0 auto;
+}
+
+.perguntas-holder{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#timer,
+#pergunta{
+	margin: 16px;
+}
+
+.respostas-holder{
+	display: flex;
+	flex-direction: row;
+	gap: 32px;
+}

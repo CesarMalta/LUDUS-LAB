@@ -4,8 +4,30 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>MathRace</title>
+
+		<link href="style.css" rel="stylesheet">
+
+		<script type="module" src="main.js"></script>
+		<script type="module" src="sprite.js"></script>
+		<script type="module" src="sprite-repetido.js"></script>
+		<script type="module" src="veiculo.js"></script>
+		<script type="module" src="canvas.js"></script>
+		<script type="module" src="config.js"></script>
+		<script type="module" src="perguntas.js"></script>
 	</head>
 	<body>
 		<p>MATHRACE</p>
+		<canvas id="canvas-jogo"></canvas>
+
+		<div class="perguntas-holder">
+			<span id="timer">Tempo:</span>
+			<div id="pergunta">Pergunta</div>
+			<div class="respostas-holder">
+				<button id="resposta-1">Resposta 1</button>
+				<button id="resposta-2">Resposta 2</button>
+				<button id="resposta-3">Resposta 3</button>
+				<button id="resposta-4">Resposta 4</button>
+			</div>
+		</div>
 	</body>
 </html>
