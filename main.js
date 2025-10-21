@@ -97,12 +97,11 @@ function checar_fim()
 	}
 }
 
-// Atualiza todos os bots
-function rodar_bots()
+// Centraliza camera no player
+function centralizar_no_player()
 {
-	bots.forEach((bot, i) => {
-		bot.atualizar()
-	})
+	var dist = Math.min(Math.max(veiculo_player.posicao.x, 0), config.TAMANHO_DA_PISTA - canvas.canvas.width/2)
+	canvas.centralizar_em(dist)
 }
 
 // Apertou no botão de resposta correto
@@ -202,9 +201,8 @@ function animar(tempo)
 			break
 	}
 
-	var dist = Math.min(Math.max(veiculo_player.posicao.x, 0), config.TAMANHO_DA_PISTA - canvas.canvas.width/2)
-	canvas.centralizar_em(dist)
 
+	centralizar_no_player()
 	ultimo_tempo = tempo
 }
 
