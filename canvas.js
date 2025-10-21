@@ -31,8 +31,10 @@ function centralizar_em(x)
 	var x_tela = x - pos_x
 	var dist_centro = (x_tela) - (canvas.width/2)
 
-	ctx.translate(-dist_centro, 0)
-	pos_x += dist_centro
+	if (dist_centro > 0){
+		ctx.translate(-dist_centro, 0)
+		pos_x += dist_centro
+	}
 }
 
 // Desenha uma string
