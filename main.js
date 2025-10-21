@@ -34,9 +34,8 @@ for (var i = 0; i < 4; i++){
 		},
 		imagem: "./carro.png",
 	})
-	if (i != 3){ // Não é o player, player é o último
-		veiculo.cor_random()
-	}
+	veiculo.cor_random()
+
 	pistas.push(pista)
 	veiculos.push(veiculo)
 }
