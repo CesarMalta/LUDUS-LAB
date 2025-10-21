@@ -2,9 +2,11 @@ import * as config from "./config.js"
 import * as canvas from "./canvas.js"
 import * as perguntas from "./perguntas.js"
 
+import {Sprite} from "./sprite.js"
 import {SpriteRepetido} from "./sprite-repetido.js"
 import {Veiculo} from "./veiculo.js"
 import {Bot} from "./bot.js"
+import {Sinaleira} from "./sinaleira.js"
 
 const pistas = []
 const veiculos = []
@@ -12,11 +14,12 @@ const bots = []
 
 // Enum para estado de jogo
 const ESTADO_DE_JOGO = Object.freeze({
-	JOGO_RODANDO:  0,
-	PLAYER_GANHOU: 1,
-	PLAYER_PERDEU: 2
+	JOGO_COMECANDO: 0,
+	JOGO_RODANDO:   1,
+	PLAYER_GANHOU:  2,
+	PLAYER_PERDEU:  3
 })
-var jogo_estado = ESTADO_DE_JOGO.JOGO_RODANDO
+var jogo_estado = ESTADO_DE_JOGO.JOGO_COMECANDO
 
 // Criar pistas e veículos
 for (var i = 0; i < 4; i++){
@@ -64,6 +67,15 @@ const background = new SpriteRepetido({
 	imagem: "./background.png",
 })
 
+// Seta que indica o carro do player
+const seta_player = new Sprite({
+	posicao: {
+		x: veiculo_player.posicao.x + 100,
+		y: veiculo_player.posicao.y
+	},
+	imagem: "./seta.png",
+})
+
 // Muda a variavel jogo_estado
 function checar_fim()
 {
@@ -95,8 +107,8 @@ function rodar_bots()
 
 // Apertou no botão de resposta correto
 document.addEventListener("RespostaCorreta", function(){
-	if (jogo_estado != 0){
-		// Jogo já acabou
+	if (jogo_estado != ESTADO_DE_JOGO.JOGO_RODANDO){
+		// Jogo já acabou / não começou
 		return
 	}
 
@@ -107,14 +119,33 @@ document.addEventListener("RespostaCorreta", function(){
 
 // Apertou no botão de resposta errado
 document.addEventListener("RespostaErrada", function(){
-	if (jogo_estado != 0){
-		// Jogo já acabou
+	if (jogo_estado != ESTADO_DE_JOGO.JOGO_RODANDO){
+		// Jogo já acabou / não começou
 		return
 	}
 
 	veiculo_player.velocidade -= config.VELOCIDADE_PERDIDA_POR_ERRO
 	console.log(veiculo_player.velocidade)
 	perguntas.gerar_pergunta()
+})
+
+// Sinaleira (contagem inicial)
+const sinaleira = new Sinaleira({
+	posicao: {
+		x: canvas.width/2 - 50,
+		y: canvas.height/2 - 180
+	},
+	imagem_vermelho: "./sinaleira_vermelho.png",
+	imagem_amarelo: "./sinaleira_amarelo.png",
+	imagem_verde: "./sinaleira_verde.png",
+})
+
+// Sinal verde, iniciar jogo
+document.addEventListener("SinaleiraVerde", function(){
+	setTimeout(() => {
+		jogo_estado = ESTADO_DE_JOGO.JOGO_RODANDO
+		perguntas.gerar_pergunta()
+	}, config.SINALEIRA_FIM_DELAY);
 })
 
 
@@ -126,17 +157,31 @@ function animar(tempo)
 
 	canvas.limpar_canvas()
 
+	background.desenhar()
+
+	pistas.forEach((pista, i) => {
+		pista.desenhar()
+	});
+
+	if (jogo_estado == ESTADO_DE_JOGO.JOGO_COMECANDO){
+		// Jogo ainda está começando, não rodar lógica
+		veiculos.forEach((veic, i) => {
+			veic.atualizar()
+		});
+
+		seta_player.desenhar()
+
+		sinaleira.atualizar()
+		return
+	}
+
+	// Rodar lógica
 	if (!ultimo_tempo){
 		ultimo_tempo = tempo
 	}
 
 	var delta_time = tempo - ultimo_tempo
 
-	background.desenhar()
-
-	pistas.forEach((pista, i) => {
-		pista.desenhar()
-	});
 
 	bots.forEach((bot, i) => {
 		bot.atualizar()
@@ -164,6 +209,6 @@ function animar(tempo)
 }
 
 setTimeout(() => {
-	perguntas.gerar_pergunta()
+	sinaleira.iniciar_contagem()
 	window.requestAnimationFrame(animar)
 }, 100);
