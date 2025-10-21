@@ -139,6 +139,16 @@ const sinaleira = new Sinaleira({
 	imagem_verde: "./sinaleira_verde.png",
 })
 
+// Atualizar tamanho da sinaleira e camera no redimensionamento da tela
+window.addEventListener("resize", function(){
+	console.log(canvas.pos_x)
+	centralizar_no_player()
+	sinaleira.posicao = {
+		x: canvas.width/2 - 50 + canvas.pos_x,
+		y: canvas.height/2 - 180
+	}
+})
+
 // Sinal verde, iniciar jogo
 document.addEventListener("SinaleiraVerde", function(){
 	setTimeout(() => {
@@ -185,6 +195,7 @@ function animar(tempo)
 	bots.forEach((bot, i) => {
 		bot.atualizar()
 	});
+
 
 	veiculo_player.atualizar()
 

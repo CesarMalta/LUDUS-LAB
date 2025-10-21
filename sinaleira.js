@@ -1,4 +1,5 @@
 import * as config from "./config.js"
+import * as canvas from "./canvas.js"
 import {Sprite} from "./sprite.js"
 
 // Enum sinaleira
@@ -25,6 +26,14 @@ class Sinaleira {
 		})
 
 		this.estado = ESTADO_SINALEIRA.VERMELHO
+	}
+
+	// Setter
+	set posicao(nova_posicao)
+	{
+		this.sprite_vermelho.posicao = nova_posicao
+		this.sprite_amarelo.posicao = nova_posicao
+		this.sprite_verde.posicao = nova_posicao
 	}
 
 	// Muda a cor da sinaleira para a proxima

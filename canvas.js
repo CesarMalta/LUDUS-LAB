@@ -45,4 +45,4 @@ function desenhar_texto(texto, x, y)
 	ctx.fillText(texto, pos_x + x, y)
 }
 
-export {canvas, ctx, limpar_canvas, centralizar_em, desenhar_texto, width, height}
+export {canvas, ctx, limpar_canvas, centralizar_em, desenhar_texto, width, height, pos_x}
