@@ -32,7 +32,7 @@ for (var i = 0; i < 4; i++){
 	})
 	const veiculo = new Veiculo({
 		posicao: {
-			x: canvas.width/2 - 40,
+			x: 0,
 			y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
 		},
 		imagem: "./carro.png",
