@@ -219,5 +219,6 @@ function animar(tempo)
 
 setTimeout(() => {
 	sinaleira.iniciar_contagem()
+	centralizar_no_player()
 	window.requestAnimationFrame(animar)
 }, 100);
