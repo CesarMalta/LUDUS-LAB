@@ -57,6 +57,7 @@ for (var i = 0; i < 3; i++){
 
 // Player é o último veículo
 const veiculo_player = veiculos[3];
+var player_score = 0
 
 // Background
 const background = new SpriteRepetido({
@@ -105,12 +106,13 @@ function centralizar_no_player()
 }
 
 // Apertou no botão de resposta correto
-document.addEventListener("RespostaCorreta", function(){
+document.addEventListener("RespostaCorreta", function(evt){
 	if (jogo_estado != ESTADO_DE_JOGO.JOGO_RODANDO){
 		// Jogo já acabou / não começou
 		return
 	}
 
+	player_score += Math.ceil(evt.detail.segundos_restantes) * config.MULTIPLICADOR_SCORE
 	veiculo_player.velocidade += config.VELOCIDADE_GANHA_POR_ACERTO
 	console.log(veiculo_player.velocidade)
 	perguntas.gerar_pergunta()
@@ -171,6 +173,20 @@ function animar(tempo)
 	pistas.forEach((pista, i) => {
 		pista.desenhar()
 	});
+
+	// Pontuação
+	canvas.desenhar_rect(
+		{
+			r: 0,
+			g: 0,
+			b: 0,
+			a: 0.5,
+		},
+		canvas.width - 155, 5,
+		150, 70
+	)
+	canvas.desenhar_texto("Pontuação:", 20, 700, 25)
+	canvas.desenhar_texto(String(player_score).padStart(7, "0"), 20, 690, 55)
 
 	if (jogo_estado == ESTADO_DE_JOGO.JOGO_COMECANDO){
 		// Jogo ainda está começando, não rodar lógica

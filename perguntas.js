@@ -18,7 +18,9 @@ function botao_clicado(evt)
 	var botao = evt.currentTarget
 	if (botao.isSameNode(botao_correto)){
 		// Botao correto clicado
-		document.dispatchEvent(new Event("RespostaCorreta"))
+		var correto_event = new CustomEvent("RespostaCorreta", {detail: {segundos_restantes: tempo_restante}})
+		document.dispatchEvent(correto_event)
+		// document.dispatchEvent(new Event("RespostaCorreta"))
 	} else {
 		// Botao incorreto clicado
 		document.dispatchEvent(new Event("RespostaErrada"))
