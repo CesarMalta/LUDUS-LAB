@@ -45,4 +45,15 @@ function desenhar_texto(texto, tamanho, x, y)
 	ctx.fillText(texto, pos_x + x, y)
 }
 
-export {canvas, ctx, limpar_canvas, centralizar_em, desenhar_texto, width, height, pos_x}
+// Desenha retângulo
+function desenhar_rect(rgba, x, y, width, height)
+{
+	var original_fillstyle = ctx.fillStyle
+
+	ctx.fillStyle = "rgba(" + rgba.r + ", " + rgba.g + ", " + rgba.b + ", " + rgba.a + ")"
+	ctx.fillRect(pos_x + x, y, width, height)
+
+	ctx.fillStyle = original_fillstyle
+}
+
+export {canvas, ctx, limpar_canvas, centralizar_em, desenhar_texto, width, height, pos_x, desenhar_rect}
