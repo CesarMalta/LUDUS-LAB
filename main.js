@@ -202,10 +202,10 @@ function animar(tempo)
 	checar_fim()
 	switch (jogo_estado){
 		case ESTADO_DE_JOGO.PLAYER_GANHOU:
-			canvas.desenhar_texto("vc ganhou", canvas.width/2, canvas.height/2)
+			canvas.desenhar_texto("vc ganhou", 50, canvas.width/2, canvas.height/2)
 			break
 		case ESTADO_DE_JOGO.PLAYER_PERDEU:
-			canvas.desenhar_texto("vc perdeu", canvas.width/2, canvas.height/2)
+			canvas.desenhar_texto("vc perdeu", 50, canvas.width/2, canvas.height/2)
 			break
 		default:
 			perguntas.rodar_timer(delta_time)

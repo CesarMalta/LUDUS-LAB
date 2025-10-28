@@ -38,10 +38,10 @@ function centralizar_em(x)
 }
 
 // Desenha uma string
-function desenhar_texto(texto, x, y)
+function desenhar_texto(texto, tamanho, x, y)
 {
 	ctx.textAlign = "center"
-	ctx.font = "50px serif"
+	ctx.font = tamanho + "px serif"
 	ctx.fillText(texto, pos_x + x, y)
 }
 
