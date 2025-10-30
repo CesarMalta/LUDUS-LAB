@@ -34,7 +34,7 @@ for (var i = 0; i < 4; i++){
 	})
 	const veiculo = new Veiculo({
 		posicao: {
-			x: 0,
+			x: 60,
 			y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
 		},
 		imagem: "./carro.png",
@@ -61,10 +61,10 @@ for (var i = 0; i < 3; i++){
 const veiculo_player = veiculos[3];
 var player_score = 0
 
-// Seta que indica o carro do player
+// Seta que indica a pista do player
 const seta_player = new Sprite({
 	posicao: {
-		x: veiculo_player.posicao.x + 100,
+		x: -10,
 		y: veiculo_player.posicao.y
 	},
 	imagem: "./seta.png",
@@ -173,13 +173,15 @@ function animar(tempo)
 		pista.desenhar()
 	});
 
+	seta_player.posicao = {x: canvas.pos_x - 10, y: seta_player.posicao.y}
+	seta_player.desenhar()
+
 	if (jogo_estado == ESTADO_DE_JOGO.JOGO_COMECANDO){
 		// Jogo ainda está começando, não rodar lógica
 		veiculos.forEach((veic, i) => {
 			veic.atualizar()
 		});
 
-		seta_player.desenhar()
 
 		sinaleira.atualizar()
 		return
