@@ -30,14 +30,14 @@ for (var i = 0; i < 4; i++){
 			x: 0,
 			y: config.PISTA_OFFSET + i * config.PISTA_ALTURA,
 		},
-		imagem: "./pista.png",
+		imagem: "./assets/pista.png",
 	})
 	const veiculo = new Veiculo({
 		posicao: {
 			x: 60,
 			y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
 		},
-		imagem: "./carro.png",
+		imagem: "./assets/carro.png",
 	})
 
 	// Se não for o player (player é o último)
@@ -71,7 +71,7 @@ const seta_player = new Sprite({
 		x: -10,
 		y: veiculo_player.posicao.y
 	},
-	imagem: "./seta.png",
+	imagem: "./assets/seta.png",
 })
 
 // Muda a variavel jogo_estado
@@ -141,9 +141,9 @@ const sinaleira = new Sinaleira({
 		x: canvas.width/2 - 50,
 		y: canvas.height/2 - 120
 	},
-	imagem_vermelho: "./sinaleira_vermelho.png",
-	imagem_amarelo: "./sinaleira_amarelo.png",
-	imagem_verde: "./sinaleira_verde.png",
+	imagem_vermelho: "./assets/sinaleira_vermelho.png",
+	imagem_amarelo: "./assets/sinaleira_amarelo.png",
+	imagem_verde: "./assets/sinaleira_verde.png",
 })
 
 // Atualizar tamanho da sinaleira e camera no redimensionamento da tela
