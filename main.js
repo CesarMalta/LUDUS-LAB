@@ -12,6 +12,8 @@ const pistas = []
 const veiculos = []
 const bots = []
 
+const pontuacao = document.getElementById("pontuacao")
+
 // Enum para estado de jogo
 const ESTADO_DE_JOGO = Object.freeze({
 	JOGO_COMECANDO: 0,
@@ -96,6 +98,12 @@ function centralizar_no_player()
 	canvas.centralizar_em(dist)
 }
 
+// Atualiza o texto de pontuação
+function atualizar_pontuacao()
+{
+	pontuacao.textContent = String(player_score).padStart(7, "0")
+}
+
 // Apertou no botão de resposta correto
 document.addEventListener("RespostaCorreta", function(evt){
 	if (jogo_estado != ESTADO_DE_JOGO.JOGO_RODANDO){
@@ -104,6 +112,8 @@ document.addEventListener("RespostaCorreta", function(evt){
 	}
 
 	player_score += Math.ceil(evt.detail.segundos_restantes) * config.MULTIPLICADOR_SCORE
+	atualizar_pontuacao()
+
 	veiculo_player.velocidade += config.VELOCIDADE_GANHA_POR_ACERTO
 	perguntas.gerar_pergunta()
 })

@@ -22,10 +22,58 @@ body {
 .topo {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 
-	width: 100%;
+	width: 99%;
+
+	position: relative;
+}
+
+.topo > img {
+	margin-left: 16px;
+
+	position: relative;
+	left: 0;
+}
+
+.timer-holder {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	background-color: white;
+
+	font-size: 1.25rem;
+
+	padding: 16px;
+	border-radius: 8px;
+
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.pontuacao-holder {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+
+	padding: 16px;
+	margin-right: 16px;
+	border-radius: 16px;
+
+	font-size: 1.1rem;
+
+	position: absolute;
+	right: 0;
+}
+
+#pontuacao {
+	white-space: pre-line;
 }
 
 #canvas-jogo {
@@ -46,7 +94,6 @@ body {
 	border-radius: 8px;
 }
 
-#timer,
 #pergunta {
 	margin: 16px;
 
