@@ -105,7 +105,6 @@ document.addEventListener("RespostaCorreta", function(evt){
 
 	player_score += Math.ceil(evt.detail.segundos_restantes) * config.MULTIPLICADOR_SCORE
 	veiculo_player.velocidade += config.VELOCIDADE_GANHA_POR_ACERTO
-	console.log(veiculo_player.velocidade)
 	perguntas.gerar_pergunta()
 })
 
@@ -117,7 +116,6 @@ document.addEventListener("RespostaErrada", function(){
 	}
 
 	veiculo_player.velocidade -= config.VELOCIDADE_PERDIDA_POR_ERRO
-	console.log(veiculo_player.velocidade)
 	perguntas.gerar_pergunta()
 })
 
