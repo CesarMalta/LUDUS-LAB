@@ -92,7 +92,7 @@ function checar_fim()
 // Centraliza camera no player
 function centralizar_no_player()
 {
-	var dist = Math.min(Math.max(veiculo_player.posicao.x, 0), config.TAMANHO_DA_PISTA - canvas.canvas.width/2)
+	var dist = Math.min(Math.max(veiculo_player.posicao.x, 0), config.TAMANHO_DA_PISTA - canvas.canvas.width/2) + veiculo_player.sprite.imagem.naturalWidth / 2
 	canvas.centralizar_em(dist)
 }
 
