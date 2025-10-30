@@ -111,7 +111,9 @@ document.addEventListener("RespostaCorreta", function(evt){
 		return
 	}
 
-	player_score += Math.ceil(evt.detail.segundos_restantes) * config.MULTIPLICADOR_SCORE
+	player_score += Math.ceil(evt.detail.segundos_restantes) * Math.pow(1.25, veiculo_player.velocidade)
+	player_score *= config.MULTIPLICADOR_SCORE
+	player_score = Math.ceil(player_score)
 	atualizar_pontuacao()
 
 	veiculo_player.velocidade += config.VELOCIDADE_GANHA_POR_ACERTO
@@ -219,5 +221,6 @@ function animar(tempo)
 setTimeout(() => {
 	sinaleira.iniciar_contagem()
 	centralizar_no_player()
+	atualizar_pontuacao()
 	window.requestAnimationFrame(animar)
 }, 100);
