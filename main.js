@@ -39,7 +39,11 @@ for (var i = 0; i < 4; i++){
 		},
 		imagem: "./carro.png",
 	})
-	veiculo.cor_random()
+
+	// Se não for o player (player é o último)
+	if (i != 3){
+		veiculo.cor_random()
+	}
 
 	pistas.push(pista)
 	veiculos.push(veiculo)

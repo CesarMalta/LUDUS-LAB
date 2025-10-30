@@ -1,5 +1,13 @@
 import * as canvas from "./canvas.js"
 
+var cores = [
+	[0, 50],    // Marrom
+	[160, 100], // Azul
+	[300, 90],  // Rosa
+	[325, 80],  // Vermelho
+	[0, 0],     // Cinza
+]
+
 class Sprite {
 	constructor({posicao, imagem, largura, altura})
 	{
@@ -18,8 +26,12 @@ class Sprite {
 	{
 		this.possui_cor = true
 
-		this.hue = Math.floor(Math.random() * 361)
-		this.saturation = Math.floor(Math.random() * 101)
+		let index = Math.floor(Math.random() * cores.length)
+
+		this.hue = cores[index][0]
+		this.saturation = cores[index][1]
+
+		cores.splice(index, 1)
 	}
 
 	// Desenha o sprite na tela
