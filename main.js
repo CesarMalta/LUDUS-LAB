@@ -59,15 +59,6 @@ for (var i = 0; i < 3; i++){
 const veiculo_player = veiculos[3];
 var player_score = 0
 
-// Background
-const background = new SpriteRepetido({
-	posicao: {
-		x: 0,
-		y: -100,
-	},
-	imagem: "./background.png",
-})
-
 // Seta que indica o carro do player
 const seta_player = new Sprite({
 	posicao: {
@@ -134,7 +125,7 @@ document.addEventListener("RespostaErrada", function(){
 const sinaleira = new Sinaleira({
 	posicao: {
 		x: canvas.width/2 - 50,
-		y: canvas.height/2 - 180
+		y: canvas.height/2 - 120
 	},
 	imagem_vermelho: "./sinaleira_vermelho.png",
 	imagem_amarelo: "./sinaleira_amarelo.png",
@@ -168,25 +159,9 @@ function animar(tempo)
 
 	canvas.limpar_canvas()
 
-	background.desenhar()
-
 	pistas.forEach((pista, i) => {
 		pista.desenhar()
 	});
-
-	// Pontuação
-	canvas.desenhar_rect(
-		{
-			r: 0,
-			g: 0,
-			b: 0,
-			a: 0.5,
-		},
-		canvas.width - 155, 5,
-		150, 70
-	)
-	canvas.desenhar_texto("Pontuação:", 20, 700, 25)
-	canvas.desenhar_texto(String(player_score).padStart(7, "0"), 20, 690, 55)
 
 	if (jogo_estado == ESTADO_DE_JOGO.JOGO_COMECANDO){
 		// Jogo ainda está começando, não rodar lógica

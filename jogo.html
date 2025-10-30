@@ -17,17 +17,31 @@
 		<script type="module" src="sinaleira.js"></script>
 	</head>
 	<body>
-		<p>MATHRACE</p>
-		<canvas id="canvas-jogo"></canvas>
+		<div class="jogo">
+			<div class="topo">
+				<div>
+					<p>MATHRACE</p>
+				</div>
 
-		<div class="perguntas-holder">
-			<span id="timer">Tempo:</span>
-			<div id="pergunta">Pergunta</div>
-			<div class="respostas-holder">
-				<button id="resposta-1">Resposta 1</button>
-				<button id="resposta-2">Resposta 2</button>
-				<button id="resposta-3">Resposta 3</button>
-				<button id="resposta-4">Resposta 4</button>
+				<div>
+					<span id="timer">Tempo:</span>
+				</div>
+
+				<div>
+					<span id="pontuacao">Pontuação:</span>
+				</div>
+			</div>
+
+			<canvas id="canvas-jogo"></canvas>
+
+			<div class="perguntas-holder">
+				<div id="pergunta">Pergunta</div>
+				<div class="respostas-holder">
+					<button class="resposta" id="resposta-1">??</button>
+					<button class="resposta" id="resposta-2">??</button>
+					<button class="resposta" id="resposta-3">??</button>
+					<button class="resposta" id="resposta-4">??</button>
+				</div>
 			</div>
 		</div>
 	</body>

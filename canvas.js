@@ -4,7 +4,7 @@ const canvas = document.getElementById("canvas-jogo")
 const ctx = canvas.getContext("2d")
 
 var width = window.innerWidth
-var height = 400
+var height = 290
 
 canvas.width = width
 canvas.height = height
