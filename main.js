@@ -225,6 +225,7 @@ function animar(tempo)
 }
 
 setTimeout(() => {
+	perguntas.carregar_perguntas("./json/perguntas.json")
 	sinaleira.iniciar_contagem()
 	centralizar_no_player()
 	atualizar_pontuacao()

@@ -12,6 +12,8 @@ const resposta4 = document.getElementById("resposta-4")
 
 var botao_correto
 
+var dados_json
+
 // Clique nos botões de resposta
 function botao_clicado(evt)
 {
@@ -49,44 +51,51 @@ function rodar_timer(delta_time)
 	}
 }
 
+// Carrega as perguntas a partir do json
+function carregar_perguntas(caminho_json)
+{
+	fetch(caminho_json)
+		.then(response => {
+			return response.json()
+		})
+		.then(dados => {
+			dados_json = dados
+		})
+}
+
 // Gera uma nova pergunta para o player
 function gerar_pergunta()
 {
 	tempo_restante = config.TEMPO_DE_RESPOSTA
 
-	var max
+	let index_pergunta_random = Math.floor(Math.random() * dados_json.perguntas.length)
+	let pergunta_random = dados_json.perguntas[index_pergunta_random]
 
-	// Gerar valores ( A + B )
-	max = 20;
-	var random_a = Math.floor(Math.random() * max)
-	var random_b = Math.floor(Math.random() * max)
+	pergunta.textContent = pergunta_random.pergunta
 
-	var resposta_correta = random_a + random_b
+	// Qual botão será o correto (1-4)
+	let num_botao_resposta = Math.floor(Math.random() * 4) + 1
 
-	// Qual botão será o correto
-	max = 4;
-	var num_botao_resposta = Math.floor(Math.random() * max) + 1
+	let respostas_incorretas = pergunta_random.respostas.slice()
+	respostas_incorretas.splice(respostas_incorretas.indexOf(pergunta_random.resposta_correta), 1)
 
-	// Modificar os botões
+	// Preencher textos dos botões
 	for (var i = 1; i <= 4; i++){
-		var esse_botao = document.getElementById("resposta-" + i.toString());
+		let esse_botao = document.getElementById("resposta-" + i.toString());
 
 		if (i != num_botao_resposta){
-			// Variação das respostas incorretas
-			max = 40;
-			var random_var
-			do{
-				random_var = Math.floor(Math.random() * max) - max/2
-			}while(random_var == 0)
+			let index = Math.floor(Math.random() * respostas_incorretas.length)
+			let resposta = respostas_incorretas[index]
+			respostas_incorretas.splice(index, 1)
 
-			esse_botao.textContent = (resposta_correta + random_var).toString()
+			esse_botao.textContent = String(resposta)
 		} else {
 			botao_correto = esse_botao
-			esse_botao.textContent = resposta_correta.toString()
+			esse_botao.textContent = String(pergunta_random.resposta_correta)
 		}
 	}
 
-	pergunta.textContent = random_a.toString() + " + " + random_b.toString()
+	return
 }
 
-export {gerar_pergunta, rodar_timer}
+export {carregar_perguntas, gerar_pergunta, rodar_timer}
