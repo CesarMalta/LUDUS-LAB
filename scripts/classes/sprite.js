@@ -1,4 +1,4 @@
-import * as canvas from "./canvas.js"
+import * as canvas from "../canvas.js"
 
 var cores = [
 	[0, 50],    // Marrom

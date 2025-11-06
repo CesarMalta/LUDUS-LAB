@@ -1,5 +1,6 @@
-import * as config from "./config.js"
-import * as canvas from "./canvas.js"
+import * as config from "../config.js"
+import * as canvas from "../canvas.js"
+
 import {Sprite} from "./sprite.js"
 
 // Enum sinaleira

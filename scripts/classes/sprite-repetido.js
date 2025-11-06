@@ -1,5 +1,5 @@
-import * as canvas from "./canvas.js"
-import * as config from "./config.js"
+import * as canvas from "../canvas.js"
+import * as config from "../config.js"
 
 class SpriteRepetido {
 	constructor({posicao, imagem})

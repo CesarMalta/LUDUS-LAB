@@ -2,11 +2,11 @@ import * as config from "./config.js"
 import * as canvas from "./canvas.js"
 import * as perguntas from "./perguntas.js"
 
-import {Sprite} from "./sprite.js"
-import {SpriteRepetido} from "./sprite-repetido.js"
-import {Veiculo} from "./veiculo.js"
-import {Bot} from "./bot.js"
-import {Sinaleira} from "./sinaleira.js"
+import {Sprite} from "./classes/sprite.js"
+import {SpriteRepetido} from "./classes/sprite-repetido.js"
+import {Veiculo} from "./classes/veiculo.js"
+import {Bot} from "./classes/bot.js"
+import {Sinaleira} from "./classes/sinaleira.js"
 
 const pistas = []
 const veiculos = []
