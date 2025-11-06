@@ -1,0 +1,199 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial Black', sans-serif;
+            background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 65%, #90EE90 65%, #90EE90 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+      
+
+
+        /* Container do menu */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Botões do menu */
+        .menu-item {
+            padding: 10px 90px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2C3E50;
+            border-radius: 45px;
+            cursor: pointer;
+            box-shadow: 0 6px 0px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Arial Black', sans-serif;
+            position: relative;
+            min-width: 350px;
+            text-align: center;
+            
+        }
+
+        .menu-item.começar {
+            background: linear-gradient(180deg, #FFE680 0%, #FFC107 100%);
+        }
+
+        .menu-item.placar {
+            background: linear-gradient(180deg, #607D8B 0%, #546E7A 100%);
+            color: #FFC107;
+        } 
+
+        .menu-item.como {
+            background: linear-gradient(180deg, #607D8B 0%, #546E7A 100%);
+            color: #FFC107;
+            height: 70%;
+            
+        }
+
+        .menu-item.opções {
+            background: linear-gradient(180deg, #607D8B 0%, #546E7A 100%);
+            color: #FFC107;
+            
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-item:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: relative;
+            animation: slideFromRight 3.0s ease-out forwards;
+            opacity: 0;
+            filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        @keyframes slideFromRight {
+            0% {
+                transform: translateX(100vw);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 100px;
+            align-items: center;
+            background-color:  rgba(0, 0, 0, 0.2);
+            padding: 10px 10px;
+            border-radius: 50px ;
+        }
+
+        .menu-btn {
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #98D8C8 0%, #98D8C8 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #98D8C8 0%, #98D8C8 100%);
+        }
+
+        .menu-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin: 50px 20px;
+        }
+
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .screen h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .screen p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        
+        .back-btn:hover {
+            background: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
