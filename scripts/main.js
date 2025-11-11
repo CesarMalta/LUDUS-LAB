@@ -138,12 +138,11 @@ document.addEventListener("RespostaErrada", function(){
 // Sinaleira (contagem inicial)
 const sinaleira = new Sinaleira({
 	posicao: {
-		x: canvas.width/2 - 50,
-		y: canvas.height/2 - 120
+		x: canvas.width/2 - 35,
+		y: canvas.height/2 - 35,
 	},
-	imagem_vermelho: "./assets/sinaleira_vermelho.png",
-	imagem_amarelo: "./assets/sinaleira_amarelo.png",
-	imagem_verde: "./assets/sinaleira_verde.png",
+	imagem_off: "./assets/elementos/led_off.png",
+	imagem_on: "./assets/elementos/led_on.png",
 })
 
 // Atualizar tamanho da sinaleira e camera no redimensionamento da tela
@@ -151,13 +150,13 @@ window.addEventListener("resize", function(){
 	console.log(canvas.pos_x)
 	centralizar_no_player()
 	sinaleira.posicao = {
-		x: canvas.width/2 - 50 + canvas.pos_x,
-		y: canvas.height/2 - 180
+		x: canvas.width/2 - 35,
+		y: canvas.height/2 - 35
 	}
 })
 
 // Sinal verde, iniciar jogo
-document.addEventListener("SinaleiraVerde", function(){
+document.addEventListener("SinaleiraTerminado", function(){
 	setTimeout(() => {
 		jogo_estado = ESTADO_DE_JOGO.JOGO_RODANDO
 		perguntas.gerar_pergunta()
@@ -186,7 +185,18 @@ function animar(tempo)
 			veic.atualizar()
 		});
 
-
+		// Fundo
+		canvas.desenhar_rect(
+			{
+				r: 100,
+				g: 100,
+				b: 100,
+				a: 1,
+			},
+			canvas.width / 2 - 125,
+			canvas.height / 2 - 50,
+			250, 100
+		)
 		sinaleira.atualizar()
 		return
 	}

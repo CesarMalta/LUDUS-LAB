@@ -1,50 +1,56 @@
 import * as config from "../config.js"
 import * as canvas from "../canvas.js"
 
+const QUANTIDADE_LEDS = 3
+const OFFSET = 80
+
 import {Sprite} from "./sprite.js"
 
-// Enum sinaleira
-const ESTADO_SINALEIRA = Object.freeze({
-	VERMELHO: 0,
-	AMARELO: 1,
-	VERDE: 2
-})
-
 class Sinaleira {
-	constructor({posicao, imagem_vermelho, imagem_amarelo, imagem_verde})
+	constructor({posicao, imagem_off, imagem_on})
 	{
-		this.sprite_vermelho = new Sprite({
-			posicao: posicao,
-			imagem: imagem_vermelho,
-		})
-		this.sprite_amarelo = new Sprite({
-			posicao: posicao,
-			imagem: imagem_amarelo,
-		})
-		this.sprite_verde = new Sprite({
-			posicao: posicao,
-			imagem: imagem_verde,
-		})
+		this.leds_off = []
+		this.leds_on = []
 
-		this.estado = ESTADO_SINALEIRA.VERMELHO
+		for (let i = 0; i < QUANTIDADE_LEDS; i++){
+			this.leds_off[i] = new Sprite({
+				posicao: {
+					x: posicao.x + OFFSET * (i - 1),
+					y: posicao.y,
+				},
+				imagem: imagem_off,
+			})
+			this.leds_on[i] = new Sprite({
+				posicao: {
+					x: posicao.x + OFFSET * (i - 1),
+					y: posicao.y,
+				},
+				imagem: imagem_on,
+			})
+		}
+
+		this.lampadas_acesas = 0
 	}
 
 	// Setter
 	set posicao(nova_posicao)
 	{
-		this.sprite_vermelho.posicao = nova_posicao
-		this.sprite_amarelo.posicao = nova_posicao
-		this.sprite_verde.posicao = nova_posicao
+		for (let i = 0; i < QUANTIDADE_LEDS; i++){
+			this.leds_off[i].posicao.x = nova_posicao.x + OFFSET * (i - 1)
+			this.leds_off[i].posicao.y = nova_posicao.y
+
+			this.leds_on[i].posicao.x = nova_posicao.x + OFFSET * (i - 1)
+			this.leds_on[i].posicao.y = nova_posicao.y
+		}
 	}
 
 	// Muda a cor da sinaleira para a proxima
 	#prox_estado()
 	{
-		if (this.estado == ESTADO_SINALEIRA.VERMELHO){
-			this.estado = ESTADO_SINALEIRA.AMARELO
-		} else {
-			this.estado = ESTADO_SINALEIRA.VERDE
-			document.dispatchEvent(new Event("SinaleiraVerde"))
+		this.lampadas_acesas += 1
+
+		if (this.lampadas_acesas >= QUANTIDADE_LEDS){
+			document.dispatchEvent(new Event("SinaleiraTerminado"))
 		}
 	}
 
@@ -56,16 +62,11 @@ class Sinaleira {
 	// Desenha a imagem correta
 	desenhar()
 	{
-		switch(this.estado){
-			case ESTADO_SINALEIRA.VERMELHO:
-				this.sprite_vermelho.desenhar()
-				break
-			case ESTADO_SINALEIRA.AMARELO:
-				this.sprite_amarelo.desenhar()
-				break
-			case ESTADO_SINALEIRA.VERDE:
-				this.sprite_verde.desenhar()
-				break
+		for (let i = 0; i < this.lampadas_acesas; i++){
+			this.leds_on[i].desenhar()
+		}
+		for (let i = this.lampadas_acesas; i < QUANTIDADE_LEDS; i++){
+			this.leds_off[i].desenhar()
 		}
 	}
 
@@ -75,7 +76,7 @@ class Sinaleira {
 		var tempo_agora = new Date().getTime()
 
 		if (((tempo_agora - this.tempo_de_contagem)/1000 >= config.SINALEIRA_TEMPO_MUDAR_COR) &&
-			(this.estado != ESTADO_SINALEIRA.VERDE)) {
+			(this.lampadas_acesas != QUANTIDADE_LEDS)) {
 			this.#prox_estado()
 			this.tempo_de_contagem = tempo_agora
 		}
