@@ -30,7 +30,7 @@ for (var i = 0; i < 4; i++){
 			x: 0,
 			y: config.PISTA_OFFSET + i * config.PISTA_ALTURA,
 		},
-		imagem: "./assets/pista.png",
+		imagem: "./assets/pistas/pista_asfalto.png",
 	})
 	const veiculo = new Veiculo({
 		posicao: {

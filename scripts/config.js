@@ -5,12 +5,11 @@ const TEMPO_DE_RESPOSTA = 10 // Segundos
 const VELOCIDADE_GANHA_POR_ACERTO = 1
 const VELOCIDADE_PERDIDA_POR_ERRO = 1
 
-const VEICULO_OFFSET = 20
-const VEICULO_ESPACAMENTO = 65
+const VEICULO_OFFSET = 10
+const VEICULO_ESPACAMENTO = 71
 
-// const PISTA_OFFSET = 120
 const PISTA_OFFSET = 0
-const PISTA_ALTURA = 65
+const PISTA_ALTURA = 71
 
 const SINALEIRA_TEMPO_MUDAR_COR = 1 // Segundos
 const SINALEIRA_FIM_DELAY = 1000 // Milisegundos para começar o jogo após o sinal verde
