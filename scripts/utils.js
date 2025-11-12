@@ -13,7 +13,7 @@ function carregar_cenario(tipo_cenario)
 	switch(tipo_cenario){
 		case "carro":
 			img_pista = "/assets/pistas/pista_asfalto.png"
-			img_veiculo = "/assets/carro.png"
+			img_veiculo = "/assets/personagens/carro.png"
 			break
 		case "barco":
 			alert("Não implementado")
