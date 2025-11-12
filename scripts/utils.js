@@ -12,24 +12,24 @@ function carregar_cenario(tipo_cenario)
 {
 	switch(tipo_cenario){
 		case "carro":
-			img_pista = "/assets/pistas/pista_asfalto.png"
-			img_veiculo = "/assets/personagens/carro.png"
+			img_pista = "../assets/pistas/pista_asfalto.png"
+			img_veiculo = "../assets/personagens/carro.png"
 			break
 		case "barco":
-			img_pista = "/assets/pistas/pista_agua.png"
-			img_veiculo = "/assets/personagens/barco.png"
+			img_pista = "../assets/pistas/pista_agua.png"
+			img_veiculo = "../assets/personagens/barco.png"
 			break
 		case "aviao":
-			img_pista = "/assets/pistas/pista_asfalto.png"
-			img_veiculo = "/assets/personagens/aviao.png"
+			img_pista = "../assets/pistas/pista_asfalto.png"
+			img_veiculo = "../assets/personagens/aviao.png"
 			break
 		case "bicicleta":
-			img_pista = "/assets/pistas/pista_terra.png"
-			img_veiculo = "/assets/personagens/ciclista.png"
+			img_pista = "../assets/pistas/pista_terra.png"
+			img_veiculo = "../assets/personagens/ciclista.png"
 			break
 		case "corredor":
-			img_pista = "/assets/pistas/pista_terra.png"
-			img_veiculo = "/assets/personagens/corredor.png"
+			img_pista = "../assets/pistas/pista_terra.png"
+			img_veiculo = "../assets/personagens/corredor.png"
 			break
 
 		default:
