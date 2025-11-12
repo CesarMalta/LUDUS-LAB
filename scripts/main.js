@@ -49,6 +49,15 @@ for (var i = 0; i < 4; i++){
 	veiculos.push(veiculo)
 }
 
+// Criar bandeira de fim
+const bandeira = new Sprite({
+	posicao: {
+		x: config.TAMANHO_DA_PISTA,
+		y: 0,
+	},
+	imagem: "./assets/elementos/bandeira.png",
+})
+
 // Criar bots
 for (var i = 0; i < 3; i++){
 	const bot = new Bot({
@@ -175,6 +184,8 @@ function animar(tempo)
 	pistas.forEach((pista, i) => {
 		pista.desenhar()
 	});
+
+	bandeira.desenhar()
 
 	seta_player.posicao = {x: canvas.pos_x - 10, y: seta_player.posicao.y}
 	seta_player.desenhar()
