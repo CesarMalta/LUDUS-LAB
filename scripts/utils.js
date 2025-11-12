@@ -24,7 +24,7 @@ function carregar_cenario(tipo_cenario)
 			img_veiculo = "/assets/personagens/aviao.png"
 			break
 		case "bicicleta":
-			img_pista = "/assets/pistas/pista_asfalto.png"
+			img_pista = "/assets/pistas/pista_terra.png"
 			img_veiculo = "/assets/personagens/ciclista.png"
 			break
 		case "corredor":
