@@ -24,6 +24,16 @@ const ESTADO_DE_JOGO = Object.freeze({
 })
 var jogo_estado = ESTADO_DE_JOGO.JOGO_COMECANDO
 
+// Enum para tipo de cenário
+const CENARIOS = Object.freeze({
+	CARRO: 0,
+	BARCO: 1,
+	AVIAO: 2,
+	BICICLETA: 3,
+	CORREDOR: 4,
+})
+const cenario = document.getElementById("script-main").dataset.cenario
+
 // Criar pistas e veículos
 for (var i = 0; i < 4; i++){
 	const pista = new SpriteRepetido({
