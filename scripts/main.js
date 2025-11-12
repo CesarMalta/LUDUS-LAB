@@ -237,4 +237,4 @@ setTimeout(() => {
 	centralizar_no_player()
 	atualizar_pontuacao()
 	window.requestAnimationFrame(animar)
-}, 100);
+}, 1000);
