@@ -1,0 +1,85 @@
+import * as config from "./config.js"
+
+import {Sprite} from "./classes/sprite.js"
+import {SpriteRepetido} from "./classes/sprite-repetido.js"
+import {Veiculo} from "./classes/veiculo.js"
+import {Bot} from "./classes/bot.js"
+
+let img_pista
+let img_veiculo
+
+function carregar_cenario(tipo_cenario)
+{
+	switch(tipo_cenario){
+		case "carro":
+			img_pista = "/assets/pistas/pista_asfalto.png"
+			img_veiculo = "/assets/carro.png"
+			break
+		case "barco":
+			alert("Não implementado")
+			break
+		case "aviao":
+			alert("Não implementado")
+			break
+		case "bicicleta":
+			alert("Não implementado")
+			break
+		case "corredor":
+			alert("Não implementado")
+			break
+
+		default:
+			alert("Cenário inválido " + tipo_cenario)
+	}
+}
+
+function criar_pistas(pista_array)
+{
+	for (var i = 0; i < 4; i++){
+		const pista = new SpriteRepetido({
+			posicao: {
+				x: 0,
+				y: config.PISTA_OFFSET + i * config.PISTA_ALTURA,
+			},
+			imagem: img_pista,
+		})
+
+		pista_array.push(pista)
+	}
+}
+
+function criar_veiculos(veiculo_array)
+{
+	for (var i = 0; i < 4; i++){
+		const veiculo = new Veiculo({
+			posicao: {
+				x: 60,
+				y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
+			},
+			imagem: img_veiculo,
+		})
+
+		// Se não for o player (player é o último)
+		if (i != 3){
+			veiculo.cor_random()
+		}
+
+		veiculo_array.push(veiculo)
+	}
+}
+
+function criar_bots(bot_array, veiculo_array)
+{
+	for (var i = 0; i < 3; i++){
+		const bot = new Bot({
+			veiculo: veiculo_array[i],
+			multiplicador_vel: 0.75,
+			chance_de_acerto: 0.85,
+			tempo_de_resposta: 2,
+			variacao_tempo: 0.5,
+		})
+		bot_array.push(bot)
+	}
+}
+
+export {carregar_cenario, criar_pistas, criar_veiculos, criar_bots}

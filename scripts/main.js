@@ -2,6 +2,7 @@ import * as config from "./config.js"
 import * as canvas from "./canvas.js"
 import * as perguntas from "./perguntas.js"
 import * as audio from "./audio.js"
+import * as utils from "./utils.js"
 
 import {Sprite} from "./classes/sprite.js"
 import {SpriteRepetido} from "./classes/sprite-repetido.js"
@@ -24,41 +25,13 @@ const ESTADO_DE_JOGO = Object.freeze({
 })
 var jogo_estado = ESTADO_DE_JOGO.JOGO_COMECANDO
 
-// Enum para tipo de cenário
-const CENARIOS = Object.freeze({
-	CARRO: 0,
-	BARCO: 1,
-	AVIAO: 2,
-	BICICLETA: 3,
-	CORREDOR: 4,
-})
 const cenario = document.getElementById("script-main").dataset.cenario
 
-// Criar pistas e veículos
-for (var i = 0; i < 4; i++){
-	const pista = new SpriteRepetido({
-		posicao: {
-			x: 0,
-			y: config.PISTA_OFFSET + i * config.PISTA_ALTURA,
-		},
-		imagem: "/assets/pistas/pista_asfalto.png",
-	})
-	const veiculo = new Veiculo({
-		posicao: {
-			x: 60,
-			y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
-		},
-		imagem: "/assets/carro.png",
-	})
-
-	// Se não for o player (player é o último)
-	if (i != 3){
-		veiculo.cor_random()
-	}
-
-	pistas.push(pista)
-	veiculos.push(veiculo)
-}
+// Criar pistas, veiculos e bots
+utils.carregar_cenario(cenario)
+utils.criar_pistas(pistas)
+utils.criar_veiculos(veiculos)
+utils.criar_bots(bots, veiculos)
 
 // Criar bandeira de fim
 const bandeira = new Sprite({
@@ -69,17 +42,6 @@ const bandeira = new Sprite({
 	imagem: "/assets/elementos/bandeira.png",
 })
 
-// Criar bots
-for (var i = 0; i < 3; i++){
-	const bot = new Bot({
-		veiculo: veiculos[i],
-		multiplicador_vel: 0.75,
-		chance_de_acerto: 0.85,
-		tempo_de_resposta: 2,
-		variacao_tempo: 0.5,
-	})
-	bots.push(bot)
-}
 
 // Player é o último veículo
 const veiculo_player = veiculos[3];
