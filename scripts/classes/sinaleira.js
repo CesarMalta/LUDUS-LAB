@@ -51,6 +51,8 @@ class Sinaleira {
 
 		if (this.lampadas_acesas >= QUANTIDADE_LEDS){
 			document.dispatchEvent(new Event("SinaleiraTerminado"))
+		} else {
+			document.dispatchEvent(new Event("SinaleiraClick"))
 		}
 	}
 

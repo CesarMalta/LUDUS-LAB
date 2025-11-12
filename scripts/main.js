@@ -1,6 +1,7 @@
 import * as config from "./config.js"
 import * as canvas from "./canvas.js"
 import * as perguntas from "./perguntas.js"
+import * as audio from "./audio.js"
 
 import {Sprite} from "./classes/sprite.js"
 import {SpriteRepetido} from "./classes/sprite-repetido.js"
@@ -124,6 +125,8 @@ document.addEventListener("RespostaCorreta", function(evt){
 		return
 	}
 
+	audio.tocar(audio.SONS.ACERTO)
+
 	player_score += Math.ceil(evt.detail.segundos_restantes) * Math.pow(1.25, veiculo_player.velocidade)
 	player_score *= config.MULTIPLICADOR_SCORE
 	player_score = Math.ceil(player_score)
@@ -139,6 +142,8 @@ document.addEventListener("RespostaErrada", function(){
 		// Jogo já acabou / não começou
 		return
 	}
+
+	audio.tocar(audio.SONS.ERRO)
 
 	veiculo_player.velocidade -= config.VELOCIDADE_PERDIDA_POR_ERRO
 	perguntas.gerar_pergunta()
@@ -166,10 +171,18 @@ window.addEventListener("resize", function(){
 
 // Sinal verde, iniciar jogo
 document.addEventListener("SinaleiraTerminado", function(){
+	audio.tocar(audio.SONS.SEMAFORO_GO)
+
 	setTimeout(() => {
 		jogo_estado = ESTADO_DE_JOGO.JOGO_RODANDO
 		perguntas.gerar_pergunta()
 	}, config.SINALEIRA_FIM_DELAY);
+})
+
+// Led ativado
+document.addEventListener("SinaleiraClick", function(){
+	console.log("ok")
+	audio.tocar(audio.SONS.SEMAFORO_CLICK)
 })
 
 
@@ -247,6 +260,7 @@ function animar(tempo)
 
 setTimeout(() => {
 	perguntas.carregar_perguntas("./json/perguntas.json")
+	audio.tocar(audio.SONS.SEMAFORO_CLICK)
 	sinaleira.iniciar_contagem()
 	centralizar_no_player()
 	atualizar_pontuacao()
