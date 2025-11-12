@@ -16,10 +16,12 @@ function carregar_cenario(tipo_cenario)
 			img_veiculo = "/assets/personagens/carro.png"
 			break
 		case "barco":
-			alert("Não implementado")
+			img_pista = "/assets/pistas/pista_agua.png"
+			img_veiculo = "/assets/personagens/barco.png"
 			break
 		case "aviao":
-			alert("Não implementado")
+			img_pista = "/assets/pistas/pista_asfalto.png"
+			img_veiculo = "/assets/personagens/aviao.png"
 			break
 		case "bicicleta":
 			img_pista = "/assets/pistas/pista_asfalto.png"
