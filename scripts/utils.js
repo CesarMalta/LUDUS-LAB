@@ -22,10 +22,12 @@ function carregar_cenario(tipo_cenario)
 			alert("Não implementado")
 			break
 		case "bicicleta":
-			alert("Não implementado")
+			img_pista = "/assets/pistas/pista_asfalto.png"
+			img_veiculo = "/assets/personagens/ciclista.png"
 			break
 		case "corredor":
-			alert("Não implementado")
+			img_pista = "/assets/pistas/pista_asfalto.png"
+			img_veiculo = "/assets/personagens/corredor.png"
 			break
 
 		default:
