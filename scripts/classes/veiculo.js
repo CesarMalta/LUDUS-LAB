@@ -1,12 +1,17 @@
 import {Sprite} from "./sprite.js"
 
 class Veiculo {
-	constructor({posicao, imagem})
+	#tempo_trocar_imagem = new Date().getTime()
+
+	constructor({posicao, imagem, imagem_secundaria, possui_secundaria=false})
 	{
 		this.sprite = new Sprite({
 			posicao: posicao,
 			imagem: imagem,
+			imagem_secundaria: imagem_secundaria,
 		})
+
+		this.possui_secundaria = possui_secundaria
 
 		this._posicao = posicao
 		this._velocidade = 0
@@ -51,6 +56,14 @@ class Veiculo {
 	// Atualiza a posição de acordo com a velocidade e desenha a imagem
 	atualizar()
 	{
+		if (this.possui_secundaria == true && this.velocidade > 0){
+			var tempo_agora = new Date().getTime()
+			if ((tempo_agora - this.#tempo_trocar_imagem)/1000 >= 1/this.velocidade){
+				this.#tempo_trocar_imagem = tempo_agora
+				this.sprite.desenhar_secundaria = !this.sprite.desenhar_secundaria
+			}
+		}
+
 		this.posicao = {
 			x: this.posicao.x + this.velocidade,
 			y: this.posicao.y,

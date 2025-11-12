@@ -9,7 +9,7 @@ var cores = [
 ]
 
 class Sprite {
-	constructor({posicao, imagem, largura, altura})
+	constructor({posicao, imagem, imagem_secundaria, largura, altura})
 	{
 		this.posicao = posicao
 
@@ -19,6 +19,10 @@ class Sprite {
 		this.possui_cor = false
 		this.hue = -1
 		this.saturation = -1
+
+		this.desenhar_secundaria = false
+		this.imagem_secundaria = new Image()
+		this.imagem_secundaria.src = imagem_secundaria
 	}
 
 	// Cor aleatoria na hora de desenhar
@@ -44,10 +48,20 @@ class Sprite {
 			var saturate = "saturate(" + this.saturation + "%)"
 
 			canvas.ctx.filter = hue_rotate + " " + saturate
-			canvas.ctx.drawImage(this.imagem, this.posicao.x, this.posicao.y)
+
+			if (this.desenhar_secundaria == true){
+				canvas.ctx.drawImage(this.imagem_secundaria, this.posicao.x, this.posicao.y)
+			} else {
+				canvas.ctx.drawImage(this.imagem, this.posicao.x, this.posicao.y)
+			}
+
 			canvas.ctx.filter = original_filter
 		} else { // Cor padrão
-			canvas.ctx.drawImage(this.imagem, this.posicao.x, this.posicao.y)
+			if (this.desenhar_secundaria == true){
+				canvas.ctx.drawImage(this.imagem_secundaria, this.posicao.x, this.posicao.y)
+			} else {
+				canvas.ctx.drawImage(this.imagem, this.posicao.x, this.posicao.y)
+			}
 		}
 	}
 }

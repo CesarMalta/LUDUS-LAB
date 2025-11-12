@@ -7,9 +7,14 @@ import {Bot} from "./classes/bot.js"
 
 let img_pista
 let img_veiculo
+let img_veiculo_2
+
+let cenario
 
 function carregar_cenario(tipo_cenario)
 {
+	cenario = tipo_cenario
+
 	switch(tipo_cenario){
 		case "carro":
 			img_pista = "../assets/pistas/pista_asfalto.png"
@@ -30,6 +35,7 @@ function carregar_cenario(tipo_cenario)
 		case "corredor":
 			img_pista = "../assets/pistas/pista_terra.png"
 			img_veiculo = "../assets/personagens/corredor.png"
+			img_veiculo_2 = "../assets/personagens/corredor2.png"
 			break
 
 		default:
@@ -55,13 +61,27 @@ function criar_pistas(pista_array)
 function criar_veiculos(veiculo_array)
 {
 	for (var i = 0; i < 4; i++){
-		const veiculo = new Veiculo({
-			posicao: {
-				x: 60,
-				y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
-			},
-			imagem: img_veiculo,
-		})
+		let veiculo
+
+		if (cenario == "corredor"){
+			veiculo = new Veiculo({
+				posicao: {
+					x: 60,
+					y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
+				},
+				imagem: img_veiculo,
+				imagem_secundaria: img_veiculo_2,
+				possui_secundaria: true,
+			})
+		} else {
+			veiculo = new Veiculo({
+				posicao: {
+					x: 60,
+					y: config.PISTA_OFFSET + config.VEICULO_OFFSET + i * config.VEICULO_ESPACAMENTO,
+				},
+				imagem: img_veiculo,
+			})
+		}
 
 		// Se não for o player (player é o último)
 		if (i != 3){
