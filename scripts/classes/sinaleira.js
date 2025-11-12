@@ -44,7 +44,7 @@ class Sinaleira {
 		}
 	}
 
-	// Muda a cor da sinaleira para a proxima
+	// Acende o próximo led da sinaleira
 	#prox_estado()
 	{
 		this.lampadas_acesas += 1
@@ -72,7 +72,7 @@ class Sinaleira {
 		}
 	}
 
-	// Atualiza a cor e desenha o sprite correto
+	// Atualiza a sinaleira e desenha os leds corretamente
 	atualizar()
 	{
 		var tempo_agora = new Date().getTime()
