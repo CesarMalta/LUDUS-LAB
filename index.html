@@ -4,20 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MathRace</title>
-    <link rel="stylesheet" href="menu.css">
+    <style rel="stylesheet" href="menu.css"></style>
 </head>
 <body>
     <img src="tela.png" class="background-image" alt="Fundo do jogo">
     <img src="titulo.png" class="game-logo" alt="MathRace Logo">
-        
-        <div class="menu-container" id="mainMenu">
-            <div class="menu-item começar">COMEÇAR</div>
-            <div class="menu-item placar">PLACAR</div>
-            <div class="menu-item como">COMO JOGAR</div>
+    <div class="b1">
+    <img src="bike1.png" class="bike1">
+    </div>
+    <div class="b2">
+    <img src="bike2.png" class="bike2">
+    </div>
+    <div class="corredor">
+    <img src="corredor.png" class="correr">
+    </div>
+    <div class="pista">
+    <img src="pista.png" class="pista1">
+    </div>
+    <div class="carro">
+    <img src="carro.png" class="carro1">
+    </div>
+    
+        <div class="menu">
+            <div class="menu-item começar" onclick="window.location.href='jogar.html'">Começar</div>
+            
+            <div class="menu-item placar" onclick="window.location.href='como.html'">Tutorial</div>
+            
+            <div class="menu-item como">Placar</div>
+
+            <div class="menu-item como">Opções</div>
             
         </div>
+        <br>
+        <br>
     </div>
 
-    <script type="module" src="menu.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .backgroundimage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 115vh;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+    .quadro{
+            position: fixed;
+            top: 25%;
+            left: 15%;
+            width: 70vw;
+            height: 70vh;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+    }
+    .x{
+            
+            width: 3vw;
+            height: 5vh;
+                  
+    }
+    .fechar{
+            position: fixed;
+            top: 28%;
+            left: 80%;
+            object-fit: cover;
+            object-position: center; 
+    }
+    .fechar:hover{
+            transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <img src="como.png" class="backgroundimage">
+  <img src="quadro.png" class="quadro">
+  <div class="fechar">
+  <img src="x.png" class="x" onclick="window.location.href='teste.html'">
+  </div>
+  
+</body>
+</html>
