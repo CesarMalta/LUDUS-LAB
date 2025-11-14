@@ -1,3 +1,21 @@
+@font-face {
+
+  font-family: 'Raleway ExtraBold'; 
+
+  src:  url('../css/fonts/Raleway-ExtraBold.ttf');
+}
+@font-face {
+
+  font-family: 'Raleway Bold'; 
+
+       src:  url('./css/fonts/Raleway-Bold.ttf');
+}
+@font-face {
+
+  font-family: 'Raleway Regular';
+       src:  url('../css/fonts/Raleway-Regular.ttf');
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -42,7 +60,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 
-	background-color: white;
+	background-color: rgba(0, 0, 0, 0.5);
 
 	font-size: 1.25rem;
 
@@ -95,8 +113,8 @@ body {
 }
 
 #pergunta {
+	font-family: "Raleway Bold";
 	margin: 16px;
-
 	font-size: 1.25rem;
 }
 
@@ -123,4 +141,40 @@ body {
 .resposta:active {
 	box-shadow: 0px 4px #aaaaaa;
 	transform: translate(0px, 2px);
+}
+.txtGameTitle{
+        font-family: 'Raleway ExtraBold', sans-serif;
+        font-size: 2vw;
+        color: #FFFFFF;
+        text-align: center;
+        text-shadow: 2px 2px 4px #000000;
+}
+.txtGameSubtitle{
+        font-family: 'Raleway Bold', sans-serif;
+        font-size: 2vw;
+        color: #FFFFFF;
+        text-align: center;
+        text-shadow: 1px 1px 2px #000000;
+}
+.txtGameSubtitle2{
+        font-family: 'Raleway Regular', sans-serif;
+        font-size: 2vw;
+        color: #000000;
+        text-align: center;
+        text-shadow: 1px 1px 2px #ffd000;
+}
+.txtGameRegular{
+        font-family: 'Raleway Regular', sans-serif;
+        font-size: 2vw;
+        color: #FFFFFF;
+        text-align: center;
+        text-shadow: 1px 1px 2px #000000;
+}
+
+.txtGameRegular2{
+        font-family: 'Raleway Regular', sans-serif;
+        font-size: 2vw;
+        color: #000000;
+        text-align: center;
+        text-shadow: 1px 1px 2px #ffd000;
 }
