@@ -39,7 +39,7 @@ const bandeira = new Sprite({
 		x: config.TAMANHO_DA_PISTA,
 		y: 0,
 	},
-	imagem: "../assets/elementos/bandeira.png",
+	imagem: "/assets/elementos/bandeira.png",
 })
 
 
@@ -53,7 +53,7 @@ const seta_player = new Sprite({
 		x: -10,
 		y: veiculo_player.posicao.y
 	},
-	imagem: "../assets/seta.png",
+	imagem: "/assets/seta.png",
 })
 
 // Muda a variavel jogo_estado
@@ -127,8 +127,8 @@ const sinaleira = new Sinaleira({
 		x: canvas.width/2 - 35,
 		y: canvas.height/2 - 35,
 	},
-	imagem_off: "../assets/elementos/led_off.png",
-	imagem_on: "../assets/elementos/led_on.png",
+	imagem_off: "/assets/elementos/led_off.png",
+	imagem_on: "/assets/elementos/led_on.png",
 })
 
 // Atualizar tamanho da sinaleira e camera no redimensionamento da tela
@@ -231,7 +231,7 @@ function animar(tempo)
 }
 
 setTimeout(() => {
-	perguntas.carregar_perguntas("../json/perguntas.json")
+	perguntas.carregar_perguntas("/json/perguntas.json")
 	audio.tocar(audio.SONS.SEMAFORO_CLICK)
 	sinaleira.iniciar_contagem()
 	centralizar_no_player()
