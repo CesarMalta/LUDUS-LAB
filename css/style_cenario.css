@@ -115,7 +115,7 @@ body {
 #pergunta {
 	font-family: "Raleway Bold";
 	margin: 16px;
-	font-size: 1.25rem;
+	font-size: 3rem;
 }
 
 .respostas-holder {
@@ -138,9 +138,24 @@ body {
 
 	box-shadow: 0px 6px #aaaaaa;
 }
+.resposta.correto {
+    background-color: #4CAF50; /* Um tom de verde */
+    color: white;
+    box-shadow: 0px 6px #388E3C; /* Sombra mais escura */
+}
+
+.resposta.incorreto {
+    background-color: #F44336; /* Um tom de vermelho */
+    color: white;
+    box-shadow: 0px 6px #D32F2F; /* Sombra mais escura */
+}
 .resposta:active {
 	box-shadow: 0px 4px #aaaaaa;
 	transform: translate(0px, 2px);
+}
+.resposta:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 .txtGameTitle{
         font-family: 'Raleway ExtraBold', sans-serif;
