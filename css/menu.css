@@ -64,8 +64,8 @@
 }
 
 .game-logo {
-    max-width: 600px;
-    width: 100%;
+	/* max-width: 600px; */
+    width: 850px;
     height: auto;
     margin-top: 50px;
     margin-left: auto;
