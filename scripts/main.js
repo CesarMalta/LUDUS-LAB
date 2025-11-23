@@ -56,6 +56,18 @@ const seta_player = new Sprite({
 	imagem: "assets/seta.png",
 })
 
+// --- IMAGENS FINAIS (Carregadas sem posição fixa) ---
+const img_ganhou = new Sprite({
+	posicao: { x: 0, y: 0 },
+	imagem: "assets/elementos/ganhou.png"
+})
+
+const img_perdeu = new Sprite({
+	posicao: { x: 0, y: 0 },
+	imagem: "assets/elementos/perdeu.png"
+})
+// ---------------------------------------------------
+
 // Muda a variavel jogo_estado
 function checar_fim()
 {
@@ -133,7 +145,6 @@ const sinaleira = new Sinaleira({
 
 // Atualizar tamanho da sinaleira e camera no redimensionamento da tela
 window.addEventListener("resize", function(){
-	console.log(canvas.pos_x)
 	centralizar_no_player()
 	sinaleira.posicao = {
 		x: canvas.width/2 - 35,
@@ -153,7 +164,6 @@ document.addEventListener("SinaleiraTerminado", function(){
 
 // Led ativado
 document.addEventListener("SinaleiraClick", function(){
-	console.log("ok")
 	audio.tocar(audio.SONS.SEMAFORO_CLICK)
 })
 
@@ -183,12 +193,7 @@ function animar(tempo)
 
 		// Fundo
 		canvas.desenhar_rect(
-			{
-				r: 100,
-				g: 100,
-				b: 100,
-				a: 1,
-			},
+			{r: 100, g: 100, b: 100, a: 1},
 			canvas.width / 2 - 125,
 			canvas.height / 2 - 50,
 			250, 100
@@ -197,34 +202,55 @@ function animar(tempo)
 		return
 	}
 
-	// Rodar lógica
+	// Rodar lógica normal
 	if (!ultimo_tempo){
 		ultimo_tempo = tempo
 	}
-
 	var delta_time = tempo - ultimo_tempo
-
 
 	bots.forEach((bot, i) => {
 		bot.atualizar()
 	});
 
-
 	veiculo_player.atualizar()
-
 	checar_fim()
-	switch (jogo_estado){
-		case ESTADO_DE_JOGO.PLAYER_GANHOU:
-			canvas.desenhar_texto("vc ganhou", 50, canvas.width/2, canvas.height/2)
-			break
-		case ESTADO_DE_JOGO.PLAYER_PERDEU:
-			canvas.desenhar_texto("vc perdeu", 50, canvas.width/2, canvas.height/2)
-			break
-		default:
-			perguntas.rodar_timer(delta_time)
-			break
-	}
 
+	// === LÓGICA DE FINAL DE JOGO (SEM DISTORÇÃO) ===
+	if (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU || jogo_estado == ESTADO_DE_JOGO.PLAYER_PERDEU) {
+		
+		const centroX = canvas.pos_x + (canvas.width / 2);
+		const centroY = canvas.height / 2;
+
+		// 1. Seleciona a imagem correta
+		let img_resultado = (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU) ? img_ganhou : img_perdeu;
+
+		// 2. Calcula a PROPORÇÃO ORIGINAL (Ratio)
+		// Evita divisão por zero se a imagem ainda não carregou
+		let ratio = 1;
+		if (img_resultado.imagem.naturalWidth > 0) {
+			ratio = img_resultado.imagem.naturalHeight / img_resultado.imagem.naturalWidth;
+		}
+
+		// 3. Define Largura (50% da tela ou máx 600px)
+		let larguraImg = Math.min(canvas.width * 0.3, 400); 
+		
+		// 4. Define Altura baseada na proporção (Assim não distorce!)
+		let alturaImg = larguraImg * ratio;
+
+		img_resultado.largura = larguraImg;
+		img_resultado.altura = alturaImg;
+
+		// 5. Centraliza
+		img_resultado.posicao.x = centroX - (larguraImg / 2);
+		img_resultado.posicao.y = centroY - (alturaImg / 2);
+		
+		img_resultado.desenhar();
+
+	} else {
+		// Jogo rodando: Timer de perguntas
+		perguntas.rodar_timer(delta_time)
+	}
+	// ===============================================
 
 	centralizar_no_player()
 	ultimo_tempo = tempo

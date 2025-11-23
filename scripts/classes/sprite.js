@@ -12,6 +12,10 @@ class Sprite {
 	constructor({posicao, imagem, imagem_secundaria, largura, altura})
 	{
 		this.posicao = posicao
+		
+		// Salva as dimensões recebidas para usar no desenho
+		this.largura = largura
+		this.altura = altura
 
 		this.imagem = new Image()
 		this.imagem.src = imagem
@@ -41,6 +45,8 @@ class Sprite {
 	// Desenha o sprite na tela
 	desenhar()
 	{
+		let img_atual = (this.desenhar_secundaria == true) ? this.imagem_secundaria : this.imagem;
+
 		if (this.possui_cor == true){ // Cor foi gerada
 			var original_filter = canvas.ctx.filter
 
@@ -49,18 +55,19 @@ class Sprite {
 
 			canvas.ctx.filter = hue_rotate + " " + saturate
 
-			if (this.desenhar_secundaria == true){
-				canvas.ctx.drawImage(this.imagem_secundaria, this.posicao.x, this.posicao.y)
+			// Verifica se deve usar tamanho personalizado
+			if (this.largura && this.altura) {
+				canvas.ctx.drawImage(img_atual, this.posicao.x, this.posicao.y, this.largura, this.altura)
 			} else {
-				canvas.ctx.drawImage(this.imagem, this.posicao.x, this.posicao.y)
+				canvas.ctx.drawImage(img_atual, this.posicao.x, this.posicao.y)
 			}
 
 			canvas.ctx.filter = original_filter
 		} else { // Cor padrão
-			if (this.desenhar_secundaria == true){
-				canvas.ctx.drawImage(this.imagem_secundaria, this.posicao.x, this.posicao.y)
+			if (this.largura && this.altura) {
+				canvas.ctx.drawImage(img_atual, this.posicao.x, this.posicao.y, this.largura, this.altura)
 			} else {
-				canvas.ctx.drawImage(this.imagem, this.posicao.x, this.posicao.y)
+				canvas.ctx.drawImage(img_atual, this.posicao.x, this.posicao.y)
 			}
 		}
 	}
