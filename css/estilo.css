@@ -88,3 +88,17 @@ body {
 .fonteMenu{
     font-family: 'Raleway ExtraBold', sans-serif;
 }
+
+.tutorial {
+    width: 70%;
+    margin: 80px auto;
+    padding: 75px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    text-align: left;        
+    line-height: 1.8;
+    font-size: 20px; 
+    position: relative;
+    top: 98px;
+    left: 10px;
+}
