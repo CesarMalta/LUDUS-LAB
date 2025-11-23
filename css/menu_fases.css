@@ -15,6 +15,7 @@
     height: 500px;
     object-fit: contain;
     transition: transform 0.2s ease;
+    clip-path: polygon(0 0, 102% 43%, 50% 100%, 0 100%);
 }
 
 .fasebox .fase2 {
@@ -25,9 +26,10 @@
     height: 262px;
     object-fit: contain;
     transition: transform 0.2s ease;
+    clip-path: polygon(100% 100%, 0 0, 100% 0);
 }
 
-.fasebox .fase3 {
+.fasebox .fase3 {   
     position: absolute;
     top: 59.5%;
     left: 17.8%;
@@ -35,6 +37,7 @@
     height: 277px;
     object-fit: contain;
     transition: transform 0.2s ease;
+    clip-path: polygon(0 10%, 30% 0, 100% 100%, 0% 100%);
 }
 
 .fasebox .fase4 {
@@ -45,6 +48,7 @@
     height: 367px;
     object-fit: contain;
     transition: transform 0.2s ease;
+    clip-path: polygon(0 0, 100% 0, 38% 100%, 0 71%);
 }
 
 .fasebox .fase5 {
@@ -55,6 +59,7 @@
     height: 500px;
     object-fit: contain;
     transition: transform 0.2s ease;
+    clip-path: polygon(0 74%, 100% 0, 100% 100%, 50% 100%);
 }
 
 .fasebox img:hover {
