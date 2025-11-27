@@ -14,6 +14,8 @@
 			<canvas id="canvas-jogo"></canvas>
 
 			<div class="perguntas-holder" id="perguntas-placeholder"></div>
+
+			<div class="menu-de-fim" id="fim-placeholder"></div>
 		</div>
 
 		<script type="module">
@@ -41,7 +43,8 @@
 			async function carregarTudo() {
 				await Promise.all([
 					carregarComponente("topo.html", "topo-placeholder"),
-					carregarComponente("perguntas.html", "perguntas-placeholder")
+					carregarComponente("perguntas.html", "perguntas-placeholder"),
+					carregarComponente("fim.html", "fim-placeholder"),
 				]);
 				carregarMainScript();
 			}

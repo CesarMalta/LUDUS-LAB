@@ -15,6 +15,8 @@ const veiculos = []
 const bots = []
 
 const pontuacao = document.getElementById("pontuacao")
+const menu_fim = document.getElementById("fim-placeholder")
+const imagem_fim = document.getElementById("imagem-de-fim")
 
 // Enum para estado de jogo
 const ESTADO_DE_JOGO = Object.freeze({
@@ -55,18 +57,6 @@ const seta_player = new Sprite({
 	},
 	imagem: "assets/seta.png",
 })
-
-// --- IMAGENS FINAIS (Carregadas sem posição fixa) ---
-const img_ganhou = new Sprite({
-	posicao: { x: 0, y: 0 },
-	imagem: "assets/elementos/ganhou.png"
-})
-
-const img_perdeu = new Sprite({
-	posicao: { x: 0, y: 0 },
-	imagem: "assets/elementos/perdeu.png"
-})
-// ---------------------------------------------------
 
 // Muda a variavel jogo_estado
 function checar_fim()
@@ -217,35 +207,13 @@ function animar(tempo)
 
 	// === LÓGICA DE FINAL DE JOGO (SEM DISTORÇÃO) ===
 	if (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU || jogo_estado == ESTADO_DE_JOGO.PLAYER_PERDEU) {
-		
-		const centroX = canvas.pos_x + (canvas.width / 2);
-		const centroY = canvas.height / 2;
-
-		// 1. Seleciona a imagem correta
-		let img_resultado = (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU) ? img_ganhou : img_perdeu;
-
-		// 2. Calcula a PROPORÇÃO ORIGINAL (Ratio)
-		// Evita divisão por zero se a imagem ainda não carregou
-		let ratio = 1;
-		if (img_resultado.imagem.naturalWidth > 0) {
-			ratio = img_resultado.imagem.naturalHeight / img_resultado.imagem.naturalWidth;
+		if (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU){
+			imagem_fim.src="assets/elementos/ganhou.png"
+		} else {
+			imagem_fim.src="assets/elementos/perdeu.png"
 		}
 
-		// 3. Define Largura (50% da tela ou máx 600px)
-		let larguraImg = Math.min(canvas.width * 0.3, 400); 
-		
-		// 4. Define Altura baseada na proporção (Assim não distorce!)
-		let alturaImg = larguraImg * ratio;
-
-		img_resultado.largura = larguraImg;
-		img_resultado.altura = alturaImg;
-
-		// 5. Centraliza
-		img_resultado.posicao.x = centroX - (larguraImg / 2);
-		img_resultado.posicao.y = centroY - (alturaImg / 2);
-		
-		img_resultado.desenhar();
-
+		menu_fim.style.visibility = "visible"
 	} else {
 		// Jogo rodando: Timer de perguntas
 		perguntas.rodar_timer(delta_time)
