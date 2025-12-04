@@ -18,6 +18,7 @@ const bots = []
 const pontuacao = document.getElementById("pontuacao")
 const menu_fim = document.getElementById("fim-placeholder")
 const imagem_fim = document.getElementById("imagem-de-fim")
+const fundo_fim = document.getElementById("fundo-fim")
 
 // Enum para estado de jogo
 const ESTADO_DE_JOGO = Object.freeze({
@@ -132,6 +133,8 @@ document.addEventListener("RespostaErrada", function(){
 document.addEventListener("PlayerGanhou", function(){
 	imagem_fim.src="assets/elementos/ganhou.png"
 	menu_fim.style.visibility = "visible"
+	fundo_fim.style.visibility = "visible"
+	fundo_fim.style.backgroundColor = "rgba(0, 150, 0, 0.5)"
 
 	saves.adicionar_ao_placar(player_score, cenario)
 })
@@ -139,6 +142,8 @@ document.addEventListener("PlayerGanhou", function(){
 document.addEventListener("PlayerPerdeu", function(){
 	imagem_fim.src="assets/elementos/perdeu.png"
 	menu_fim.style.visibility = "visible"
+	fundo_fim.style.visibility = "visible"
+	fundo_fim.style.backgroundColor = "rgba(150, 0, 0, 0.5)"
 })
 
 // Sinaleira (contagem inicial)
