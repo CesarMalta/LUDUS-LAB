@@ -68,12 +68,16 @@ function checar_fim()
 	// Checar player
 	if (veiculo_player.posicao.x >= config.TAMANHO_DA_PISTA){
 		jogo_estado = ESTADO_DE_JOGO.PLAYER_GANHOU
+		document.dispatchEvent(new Event("PlayerGanhou"))
+		return
 	}
 
 	// Checar resto
 	for (var i = 0; i < 3; i++){
 		if (veiculos[i].posicao.x >= config.TAMANHO_DA_PISTA){
 			jogo_estado = ESTADO_DE_JOGO.PLAYER_PERDEU
+			document.dispatchEvent(new Event("PlayerPerdeu"))
+			return
 		}
 
 	}
@@ -121,6 +125,17 @@ document.addEventListener("RespostaErrada", function(){
 
 	veiculo_player.velocidade -= config.VELOCIDADE_PERDIDA_POR_ERRO
 	perguntas.gerar_pergunta()
+})
+
+// Roda 1 vez na hora em que o jogo acaba pelo player ganhar
+document.addEventListener("PlayerGanhou", function(){
+	imagem_fim.src="assets/elementos/ganhou.png"
+	menu_fim.style.visibility = "visible"
+})
+// Roda 1 vez na hora em que o jogo acaba pelo player perder
+document.addEventListener("PlayerPerdeu", function(){
+	imagem_fim.src="assets/elementos/perdeu.png"
+	menu_fim.style.visibility = "visible"
 })
 
 // Sinaleira (contagem inicial)
@@ -203,22 +218,13 @@ function animar(tempo)
 	});
 
 	veiculo_player.atualizar()
-	checar_fim()
 
-	// === LÓGICA DE FINAL DE JOGO (SEM DISTORÇÃO) ===
-	if (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU || jogo_estado == ESTADO_DE_JOGO.PLAYER_PERDEU) {
-		if (jogo_estado == ESTADO_DE_JOGO.PLAYER_GANHOU){
-			imagem_fim.src="assets/elementos/ganhou.png"
-		} else {
-			imagem_fim.src="assets/elementos/perdeu.png"
-		}
-
-		menu_fim.style.visibility = "visible"
-	} else {
+	// Checar se o jogo ainda não acabou
+	if (jogo_estado == ESTADO_DE_JOGO.JOGO_RODANDO){
+		checar_fim()
 		// Jogo rodando: Timer de perguntas
 		perguntas.rodar_timer(delta_time)
 	}
-	// ===============================================
 
 	centralizar_no_player()
 	ultimo_tempo = tempo
