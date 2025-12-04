@@ -3,6 +3,7 @@ import * as canvas from "./canvas.js"
 import * as perguntas from "./perguntas.js"
 import * as audio from "./audio.js"
 import * as utils from "./utils.js"
+import * as saves from "./storage.js"
 
 import {Sprite} from "./classes/sprite.js"
 import {SpriteRepetido} from "./classes/sprite-repetido.js"
@@ -131,6 +132,8 @@ document.addEventListener("RespostaErrada", function(){
 document.addEventListener("PlayerGanhou", function(){
 	imagem_fim.src="assets/elementos/ganhou.png"
 	menu_fim.style.visibility = "visible"
+
+	saves.adicionar_ao_placar(player_score, cenario)
 })
 // Roda 1 vez na hora em que o jogo acaba pelo player perder
 document.addEventListener("PlayerPerdeu", function(){
@@ -231,6 +234,7 @@ function animar(tempo)
 }
 
 setTimeout(() => {
+	saves.carregar_saves()
 	perguntas.carregar_perguntas("json/perguntas.json")
 	audio.tocar(audio.SONS.SEMAFORO_CLICK)
 	audio.tocar(audio.SONS.MUSICA, true)
