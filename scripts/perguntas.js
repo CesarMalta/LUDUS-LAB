@@ -17,15 +17,26 @@ var dados_json
 // Clique nos botões de resposta
 function botao_clicado(evt)
 {
-	var botao = evt.currentTarget
+	setar_botoes_disabled(true)
+
+	const botao = evt.currentTarget
 	if (botao.isSameNode(botao_correto)){
 		// Botao correto clicado
-		var correto_event = new CustomEvent("RespostaCorreta", {detail: {segundos_restantes: tempo_restante}})
-		document.dispatchEvent(correto_event)
-		// document.dispatchEvent(new Event("RespostaCorreta"))
+		botao.classList.toggle("correto")
+
+		botao.addEventListener("transitionend", () => {
+			botao.classList.remove("correto")
+			const correto_event = new CustomEvent("RespostaCorreta", {detail: {segundos_restantes: tempo_restante}})
+			document.dispatchEvent(correto_event)
+		}, {once: true})
 	} else {
 		// Botao incorreto clicado
-		document.dispatchEvent(new Event("RespostaErrada"))
+		botao.classList.toggle("incorreto")
+
+		botao.addEventListener("transitionend", () => {
+			botao.classList.remove("incorreto")
+			document.dispatchEvent(new Event("RespostaErrada"))
+		}, {once: true})
 	}
 }
 
@@ -95,7 +106,28 @@ function gerar_pergunta()
 		}
 	}
 
+	setar_botoes_disabled(false)
 	return
 }
+
+function setar_botoes_disabled(bool)
+{
+	resposta1.disabled = bool
+	resposta2.disabled = bool
+	resposta3.disabled = bool
+	resposta4.disabled = bool
+}
+
+document.addEventListener("keydown", (evt) => {
+	if (evt.key == "a"){
+		resposta1.click()
+	} else if (evt.key == "s"){
+		resposta2.click()
+	} else if (evt.key == "d"){
+		resposta3.click()
+	} else if (evt.key == "f"){
+		resposta4.click()
+	}
+})
 
 export {carregar_perguntas, gerar_pergunta, rodar_timer}

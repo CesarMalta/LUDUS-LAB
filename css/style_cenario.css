@@ -137,6 +137,8 @@ body {
 	font-size: 1rem;
 
 	box-shadow: 0px 6px #aaaaaa;
+
+	transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 .resposta.correto {
     background-color: #4CAF50; /* Um tom de verde */
@@ -153,10 +155,10 @@ body {
 	box-shadow: 0px 4px #aaaaaa;
 	transform: translate(0px, 2px);
 }
-.resposta:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
+/* .resposta:disabled { */
+/*     opacity: 0.7; */
+/*     cursor: not-allowed; */
+/* } */
 .txtGameTitle{
         font-family: 'Raleway ExtraBold', sans-serif;
         font-size: 2vw;
