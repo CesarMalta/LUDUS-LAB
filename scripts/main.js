@@ -137,6 +137,25 @@ document.addEventListener("PlayerGanhou", function(){
 	fundo_fim.style.backgroundColor = "rgba(0, 150, 0, 0.5)"
 
 	saves.adicionar_ao_placar(player_score, cenario)
+
+	// Descobrir qual o próximo cenário e desbloquear
+	switch(cenario){
+		case "corredor":
+			saves.desbloquear_mapa("bicicleta")
+			break
+		case "bicicleta":
+			saves.desbloquear_mapa("carro")
+			break
+		case "carro":
+			saves.desbloquear_mapa("aviao")
+			break
+		case "aviao":
+			saves.desbloquear_mapa("barco")
+			break
+		default:
+			break
+	}
+
 })
 // Roda 1 vez na hora em que o jogo acaba pelo player perder
 document.addEventListener("PlayerPerdeu", function(){

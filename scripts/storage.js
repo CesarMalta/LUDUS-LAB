@@ -96,5 +96,13 @@ function adicionar_ao_placar(pontuacao, nome_cenario)
 	salvar_placar()
 }
 
-export {carregar_saves, adicionar_ao_placar}
+function desbloquear_mapa(nome_cenario)
+{
+	if (Object.hasOwn(mapas_desbloqueados, nome_cenario)){
+		mapas_desbloqueados[nome_cenario] = true
+	}
+	salvar_mapas_desbloqueados()
+}
+
+export {carregar_saves, adicionar_ao_placar, desbloquear_mapa}
 export {mapas_desbloqueados, placar, nome}
