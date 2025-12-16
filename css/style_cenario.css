@@ -72,6 +72,52 @@ body {
 	transform: translate(-50%, 0);
 }
 
+#botao-voltar{
+	color: #ffffff;
+	background-color: #0080ff;
+	box-shadow: 0px 4px 6px 0px #0000ff;
+
+	border: none;
+	border-radius: 16px;
+
+	font-size: 2rem;
+
+	width: 5%;
+	min-width: 25px;
+	max-width: 55px;
+
+	height: 75%;
+
+	position: absolute;
+	left: 65%;
+}
+#botao-voltar:hover {
+	box-shadow: 0px 0px 6px 6px #0000ff;
+}
+
+#botao-pausar{
+	color: #ffffff;
+	background-color: #0080ff;
+	box-shadow: 0px 4px 6px 0px #0000ff;
+
+	border: none;
+	border-radius: 16px;
+
+	font-size: 2rem;
+
+	width: 5%;
+	min-width: 25px;
+	max-width: 55px;
+
+	height: 75%;
+
+	position: absolute;
+	left: 72%;
+}
+#botao-pausar:hover {
+	box-shadow: 0px 0px 6px 6px #0000ff;
+}
+
 .pontuacao-holder {
 	display: flex;
 	align-items: center;

@@ -1,4 +1,5 @@
 import * as config from "./config.js"
+import {jogo_pausado} from "./main.js"
 
 const pergunta = document.getElementById("pergunta")
 
@@ -17,6 +18,10 @@ var dados_json
 // Clique nos botões de resposta
 function botao_clicado(evt)
 {
+	if (jogo_pausado == true){
+		return
+	}
+
 	setar_botoes_disabled(true)
 
 	const botao = evt.currentTarget

@@ -15,6 +15,7 @@ const pistas = []
 const veiculos = []
 const bots = []
 
+const botao_pausar = document.getElementById("botao-pausar")
 const pontuacao = document.getElementById("pontuacao")
 const menu_fim = document.getElementById("fim-placeholder")
 const imagem_fim = document.getElementById("imagem-de-fim")
@@ -30,6 +31,8 @@ const ESTADO_DE_JOGO = Object.freeze({
 var jogo_estado = ESTADO_DE_JOGO.JOGO_COMECANDO
 
 const cenario = document.getElementById("script-main").dataset.cenario
+
+export var jogo_pausado = false
 
 // Criar pistas, veiculos e bots
 utils.carregar_cenario(cenario)
@@ -217,6 +220,11 @@ function animar(tempo)
 	seta_player.posicao = {x: canvas.pos_x - 10, y: seta_player.posicao.y}
 	seta_player.desenhar()
 
+	if (!ultimo_tempo){
+		ultimo_tempo = tempo
+	}
+	var delta_time = tempo - ultimo_tempo
+
 	if (jogo_estado == ESTADO_DE_JOGO.JOGO_COMECANDO){
 		// Jogo ainda está começando, não rodar lógica
 		veiculos.forEach((veic, i) => {
@@ -231,26 +239,34 @@ function animar(tempo)
 			250, 100
 		)
 		sinaleira.atualizar()
+
+		ultimo_tempo = tempo
 		return
 	}
 
 	// Rodar lógica normal
-	if (!ultimo_tempo){
-		ultimo_tempo = tempo
-	}
-	var delta_time = tempo - ultimo_tempo
 
-	bots.forEach((bot, i) => {
-		bot.atualizar()
-	});
+	if (jogo_pausado){
+		// Jogo está pausado, apenas desenhar
+		bots.forEach((bot, i) => {
+			bot.desenhar()
+		});
 
-	veiculo_player.atualizar()
+		veiculo_player.desenhar()
+	} else {
+		// Jogo está rodando
+		bots.forEach((bot, i) => {
+			bot.atualizar()
+		});
 
-	// Checar se o jogo ainda não acabou
-	if (jogo_estado == ESTADO_DE_JOGO.JOGO_RODANDO){
-		checar_fim()
-		// Jogo rodando: Timer de perguntas
-		perguntas.rodar_timer(delta_time)
+		veiculo_player.atualizar()
+
+		// Checar se o jogo ainda não acabou
+		if (jogo_estado == ESTADO_DE_JOGO.JOGO_RODANDO){
+			checar_fim()
+			// Jogo rodando: Timer de perguntas
+			perguntas.rodar_timer(delta_time)
+		}
 	}
 
 	centralizar_no_player()
@@ -267,3 +283,17 @@ setTimeout(() => {
 	atualizar_pontuacao()
 	window.requestAnimationFrame(animar)
 }, 1000);
+
+botao_pausar.addEventListener("click", () => {
+	if (jogo_estado == ESTADO_DE_JOGO.JOGO_COMECANDO){
+		return
+	}
+
+	if (jogo_pausado == true){
+		botao_pausar.textContent="\u23f8"
+	} else {
+		botao_pausar.textContent="\u23f5"
+	}
+
+	jogo_pausado = !jogo_pausado
+})
