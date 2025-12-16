@@ -62,9 +62,29 @@ function rodar_timer(delta_time)
 	}
 }
 
-// Carrega as perguntas a partir do json
-function carregar_perguntas(caminho_json)
+// Carrega as perguntas a partir do cenario
+function carregar_perguntas(cenario)
 {
+	let caminho_json
+
+	switch(cenario){
+		case "corredor":
+			caminho_json="json/fase1.json"
+			break
+		case "bicicleta":
+			caminho_json="json/fase2.json"
+			break
+		case "carro":
+			caminho_json="json/fase3.json"
+			break
+		case "aviao":
+			caminho_json="json/fase4.json"
+			break
+		case "barco":
+			caminho_json="json/fase5.json"
+			break;
+	}
+
 	fetch(caminho_json)
 		.then(response => {
 			return response.json()

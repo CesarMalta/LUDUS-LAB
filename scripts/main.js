@@ -259,7 +259,7 @@ function animar(tempo)
 
 setTimeout(() => {
 	saves.carregar_saves()
-	perguntas.carregar_perguntas("json/perguntas.json")
+	perguntas.carregar_perguntas(cenario)
 	audio.tocar(audio.SONS.SEMAFORO_CLICK)
 	audio.tocar(audio.SONS.MUSICA, true)
 	sinaleira.iniciar_contagem()
