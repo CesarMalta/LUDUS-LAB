@@ -1,0 +1,79 @@
+{
+	"perguntas": [
+		{
+			"pergunta": "20 / 5",
+			"respostas": [2, 3, 4, 5],
+			"resposta_correta": 4
+		},
+		{
+			"pergunta": "18 / 3",
+			"respostas": [5, 6, 7, 8],
+			"resposta_correta": 6
+		},
+		{
+			"pergunta": "16 / 4",
+			"respostas": [2, 3, 4, 5],
+			"resposta_correta": 4
+		},
+		{
+			"pergunta": "45 / 5",
+			"respostas": [7, 8, 9, 10],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "36 / 6",
+			"respostas": [4, 5, 6, 7],
+			"resposta_correta": 6
+		},
+		{
+			"pergunta": "81 / 9",
+			"respostas": [7, 8, 9, 10],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "64 / 8",
+			"respostas": [6, 7, 8, 9],
+			"resposta_correta": 8
+		},
+		{
+			"pergunta": "72 / 9",
+			"respostas": [6, 7, 8, 9],
+			"resposta_correta": 8
+		},
+		{
+			"pergunta": "50 / 10",
+			"respostas": [3, 4, 5, 6],
+			"resposta_correta": 5
+		},
+		{
+			"pergunta": "42 / 7",
+			"respostas": [5, 6, 7, 8],
+			"resposta_correta": 6
+		},
+		{
+			"pergunta": "90 / 10",
+			"respostas": [7, 8, 9, 10],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "28 / 4",
+			"respostas": [5, 6, 7, 8],
+			"resposta_correta": 7
+		},
+		{
+			"pergunta": "63 / 7",
+			"respostas": [7, 8, 9, 10],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "100 / 20",
+			"respostas": [4, 5, 6, 7],
+			"resposta_correta": 5
+		},
+		{
+			"pergunta": "54 / 6",
+			"respostas": [7, 8, 9, 10],
+			"resposta_correta": 9
+		}
+	]
+}
