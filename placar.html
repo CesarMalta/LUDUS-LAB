@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placar - MathRace</title>
     <link rel="stylesheet" href="css/placar.css">
-    <script src="scripts/placar.js"></script>
+    <script type="module" src="scripts/placar.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,20 +15,29 @@
 
         <div class="leaderboard">
             <div class="leaderboard-row">
+				<img src="assets/elementos/trofeu1.png" class="medal" alt="1º lugar">
                 <div class="position first">
-                    <img src="assets/elementos/trofeu1.png" class="medal" alt="1º lugar">
+					<p id="nome-1"></p>
+					<p id="pontuacao-1"></p>
+					<p id="cenario-1"></p>
                 </div>
             </div>
 
             <div class="leaderboard-row">
+				<img src="assets/elementos/trofeu2.png" class="medal" alt="2º lugar">
                 <div class="position second">
-                    <img src="assets/elementos/trofeu2.png" class="medal" alt="2º lugar">
+					<p id="nome-2"></p>
+					<p id="pontuacao-2"></p>
+					<p id="cenario-2"></p>
                 </div>
             </div>
 
             <div class="leaderboard-row">
+				<img src="assets/elementos/trofeu3.png" class="medal" alt="3º lugar">
                 <div class="position third">
-                    <img src="assets/elementos/trofeu3.png" class="medal" alt="3º lugar">
+					<p id="nome-3"></p>
+					<p id="pontuacao-3"></p>
+					<p id="cenario-3"></p>
                 </div>
             </div>
         </div>
@@ -37,7 +46,5 @@
             <button id="btnVoltar" onclick="window.location.href='index.html'">VOLTAR AO INICIO</button>
         </div>
     </div>
-
-    <script src="scripts/placar.js"></script>
 </body>
 </html>
