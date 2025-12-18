@@ -108,3 +108,31 @@ body {
     line-height: 1.6;
     text-align: left;
 }
+
+@media (max-width: 1024px) {
+    .tutorial {
+        width: 85%;
+        padding: 50px;
+    }
+
+    .tutorial-conteudo {
+        margin-top: 60px;
+        margin-left: 30px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tutorial {
+        width: 95%;
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    .tutorial-conteudo {
+        margin-top: 30px;
+        margin-left: 0;
+        font-size: 16px;
+        max-width: 100%;
+    }
+}
