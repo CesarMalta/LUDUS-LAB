@@ -89,8 +89,15 @@ body {
     font-family: 'Raleway ExtraBold', sans-serif;
 }
 
-
-
+.tutorial {
+    width: 70%;
+    margin: 80px auto;
+    padding: 75px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+}
 
 .tutorial-conteudo {
     max-width: 900px;
@@ -99,32 +106,4 @@ body {
     font-size: 18px;
     line-height: 1.6;
     text-align: left;
-}
-
-@media (max-width: 1024px) {
-    .tutorial {
-        width: 85%;
-        padding: 50px;
-    }
-
-    .tutorial-conteudo {
-        margin-top: 60px;
-        margin-left: 30px;
-        font-size: 17px;
-    }
-}
-
-@media (max-width: 600px) {
-    .tutorial {
-        width: 95%;
-        padding: 30px;
-        margin: 40px auto;
-    }
-
-    .tutorial-conteudo {
-        margin-top: 30px;
-        margin-left: 0;
-        font-size: 16px;
-        max-width: 100%;
-    }
 }
