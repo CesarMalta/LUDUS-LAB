@@ -232,15 +232,15 @@
     position: fixed;
 }
 .barco{
-    top: 48%;
+    top: 43%;
     left: 85%;
     object-fit: cover;
     object-position: center;
     position: fixed;
 }
 .barco1{
-    width: 8vw;
-    height: 14vh;
+    width: 12vw;
+    height: 20vh;
     
 }
 .agua1{
