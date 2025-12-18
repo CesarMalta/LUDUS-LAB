@@ -75,3 +75,85 @@
 	pointer-events:	none;
 	cursor: default;
 }
+
+@media (max-width: 1024px) {
+
+    body {
+        overflow-y: auto !important; 
+        min-height: 100vh;
+    }
+
+    .titulo {
+        position: absolute !important;
+        top: 30px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 70% !important; 
+    
+    }
+
+    .fasebox {
+        position: relative; 
+        top: 0;
+        left: 0;
+        transform: none;
+        
+        width: 100%;
+        height: auto;
+        
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        
+        padding-top: 140px; 
+        padding-bottom: 50px; 
+        gap: 20px; 
+    }
+
+    .fasebox a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .fasebox .fase1,
+    .fasebox .fase2,
+    .fasebox .fase3,
+    .fasebox .fase4,
+    .fasebox .fase5 {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        
+        width: 100%;
+        max-width: 300px;
+        height: 120px;
+        
+        clip-path: none; 
+        object-fit: cover;
+
+        border-radius: 20px;
+        border: 3px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        margin: 0;
+    }
+
+    .fasebox h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .fasebox img:active {
+        transform: scale(0.95);
+    }
+ 
+    .fasebox img:hover {
+        transform: none; 
+        z-index: 1;
+    }
+}
