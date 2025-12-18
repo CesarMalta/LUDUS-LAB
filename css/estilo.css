@@ -92,30 +92,11 @@ body {
 
 
 
-*{
-    box-sizing: border-box;
-}
-
-.tutorial {
-    width: 70%;
-    margin: 5vh auto; 
-    padding: 2vw;    
-    border-radius: 20px;
-    font-family: Arial, sans-serif;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 70vh; 
-    position: relative;
-}
-
 .tutorial-conteudo {
-    width: 90%;
-    margin-top: 5vw;  
-    margin-left: 5vw; 
-    
-    font-size: 1.2vw; 
+    max-width: 900px;
+    margin-top: 90px;
+    margin-left: 70px;
+    font-size: 18px;
     line-height: 1.6;
     text-align: left;
 }
@@ -123,26 +104,27 @@ body {
 @media (max-width: 1024px) {
     .tutorial {
         width: 85%;
-        min-height: 60vh;
+        padding: 50px;
     }
+
     .tutorial-conteudo {
-        font-size: 1.8vw; 
-        margin-top: 4vw;
+        margin-top: 60px;
+        margin-left: 30px;
+        font-size: 17px;
     }
 }
 
 @media (max-width: 600px) {
     .tutorial {
         width: 95%;
-        margin: 20px auto;
-        padding: 15px;
-        min-height: auto; 
+        padding: 30px;
+        margin: 40px auto;
     }
+
     .tutorial-conteudo {
-        width: 100%;
-        margin-top: 40px; 
-        margin-left: 10px;
-        font-size: 14px;  
-        line-height: 1.4;
+        margin-top: 30px;
+        margin-left: 0;
+        font-size: 16px;
+        max-width: 100%;
     }
 }
