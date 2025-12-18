@@ -1,19 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Placar</title>
-		<link href="css/placar.css" rel="stylesheet">
-		<script type="module" src="scripts/placar.js"></script>
-	</head>
-	<body>
-		<div id="placar">
-			<!-- <div class="placar-entrada"> -->
-			<!-- 	<p class="nome">PLAYER</p> -->
-			<!-- 	<p class="pontuacao">PONTUACAO</p> -->
-			<!-- 	<p class="cenario">CENARIO</p> -->
-			<!-- </div> -->
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar - MathRace</title>
+    <link rel="stylesheet" href="css/placar.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/elementos/placar_titulo.png" style="width: 100%; max-width: 600px; margin: 0 auto; display: block;" alt="Placar">
+        </div>
+
+        <div class="leaderboard">
+            <div class="leaderboard-row">
+                <div class="position first">
+                    <img src="assets/elementos/trofeu1.png" class="medal" alt="1º lugar">
+                </div>
+                
+            </div>
+
+            <div class="leaderboard-row">
+                <div class="position second">
+                    <img src="assets/elementos/trofeu2.png" class="medal" alt="2º lugar">
+                </div>
+                
+            </div>
+
+            <div class="leaderboard-row">
+                <div class="position third">
+                    <img src="assets/elementos/trofeu3.png" class="medal" alt="3º lugar">
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="back-button">
+            <button id="btnVoltar">VOLTAR AO INICIO</button>
+        </div>
+    </div>
+
+    <script src="scripts/placar.js"></script>
+</body>
 </html>
