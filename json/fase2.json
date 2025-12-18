@@ -1,79 +1,104 @@
 {
 	"perguntas": [
 		{
-			"pergunta": "50 - 23",
-			"respostas": [27, 25, 30, 22],
-			"resposta_correta": 27
+			"pergunta": "7 - 3",
+			"respostas": [3, 4, 5, 6],
+			"resposta_correta": 4
 		},
 		{
-			"pergunta": "100 - 45",
-			"respostas": [55, 60, 50, 65],
-			"resposta_correta": 55
+			"pergunta": "10 - 4",
+			"respostas": [5, 6, 7, 8],
+			"resposta_correta": 6
 		},
 		{
-			"pergunta": "18 - 7",
-			"respostas": [11, 12, 10, 9],
+			"pergunta": "12 - 5",
+			"respostas": [6, 7, 8, 9],
+			"resposta_correta": 7
+		},
+		{
+			"pergunta": "15 - 6",
+			"respostas": [8, 9, 10, 11],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "9 - 2",
+			"respostas": [5, 6, 7, 8],
+			"resposta_correta": 7
+		},
+		{
+			"pergunta": "14 - 7",
+			"respostas": [6, 7, 8, 9],
+			"resposta_correta": 7
+		},
+		{
+			"pergunta": "18 - 9",
+			"respostas": [8, 9, 10, 11],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "20 - 8",
+			"respostas": [10, 11, 12, 13],
+			"resposta_correta": 12
+		},
+		{
+			"pergunta": "16 - 5",
+			"respostas": [10, 11, 12, 13],
 			"resposta_correta": 11
 		},
 		{
-			"pergunta": "64 - 28",
-			"respostas": [36, 34, 38, 40],
-			"resposta_correta": 36
+			"pergunta": "13 - 4",
+			"respostas": [8, 9, 10, 11],
+			"resposta_correta": 9
 		},
 		{
-			"pergunta": "9 - 3",
-			"respostas": [6, 5, 7, 8],
-			"resposta_correta": 6
+			"pergunta": "22 - 7",
+			"respostas": [13, 14, 15, 16],
+			"resposta_correta": 15
 		},
 		{
-			"pergunta": "120 - 75",
-			"respostas": [45, 40, 50, 55],
-			"resposta_correta": 45
-		},
-		{
-			"pergunta": "33 - 19",
-			"respostas": [14, 12, 15, 16],
-			"resposta_correta": 14
-		},
-		{
-			"pergunta": "200 - 86",
-			"respostas": [114, 120, 110, 104],
-			"resposta_correta": 114
-		},
-		{
-			"pergunta": "72 - 48",
-			"respostas": [24, 22, 26, 28],
-			"resposta_correta": 24
-		},
-		{
-			"pergunta": "15 - 9",
-			"respostas": [6, 5, 7, 4],
-			"resposta_correta": 6
-		},
-		{
-			"pergunta": "90 - 37",
-			"respostas": [53, 55, 50, 57],
-			"resposta_correta": 53
-		},
-		{
-			"pergunta": "41 - 18",
-			"respostas": [23, 21, 25, 24],
-			"resposta_correta": 23
-		},
-		{
-			"pergunta": "300 - 145",
-			"respostas": [155, 160, 150, 165],
-			"resposta_correta": 155
-		},
-		{
-			"pergunta": "27 - 14",
-			"respostas": [13, 12, 11, 15],
+			"pergunta": "19 - 6",
+			"respostas": [12, 13, 14, 15],
 			"resposta_correta": 13
 		},
 		{
-			"pergunta": "80 - 26",
-			"respostas": [54, 56, 52, 50],
-			"resposta_correta": 54
+			"pergunta": "25 - 9",
+			"respostas": [15, 16, 17, 18],
+			"resposta_correta": 16
+		},
+		{
+			"pergunta": "17 - 8",
+			"respostas": [8, 9, 10, 11],
+			"resposta_correta": 9
+		},
+		{
+			"pergunta": "30 - 12",
+			"respostas": [16, 17, 18, 19],
+			"resposta_correta": 18
+		},
+		{
+			"pergunta": "24 - 7",
+			"respostas": [15, 16, 17, 18],
+			"resposta_correta": 17
+		},
+		{
+			"pergunta": "28 - 10",
+			"respostas": [16, 17, 18, 19],
+			"resposta_correta": 18
+		},
+		{
+			"pergunta": "21 - 9",
+			"respostas": [11, 12, 13, 14],
+			"resposta_correta": 12
+		},
+		{
+			"pergunta": "26 - 8",
+			"respostas": [16, 17, 18, 19],
+			"resposta_correta": 18
+		},
+		{
+			"pergunta": "32 - 11",
+			"respostas": [19, 20, 21, 22],
+			"resposta_correta": 21
 		}
 	]
 }
