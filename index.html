@@ -6,9 +6,11 @@
     <title>MathRace</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/menu.css">
+
+	<script type="module" src="scripts/carregar_volume.js"></script>
 </head>
 <body>
-	<audio autoplay loop src="assets/som/musica-menu.mpeg" type="audio/mpeg"></audio>
+	<audio autoplay loop src="assets/som/musica-menu.mpeg" type="audio/mpeg" id="musica"></audio>
 
     <img src="assets/menu/tela.png" class="background-image" alt="Fundo do jogo">
     <img src="assets/menu/titulo.png" class="game-logo" alt="MathRace Logo">
@@ -41,7 +43,7 @@
             
 			<div class="menu-item" onclick="window.location.href='placar.html'"><div class="fonteMenu">Placar</div></div>
 
-            <div class="menu-item"><div class="fonteMenu">Opções</div></div>
+            <div class="menu-item" onclick="window.location.href='opcoes.html'"><div class="fonteMenu">Opções</div></div>
             
         </div>
         <br>

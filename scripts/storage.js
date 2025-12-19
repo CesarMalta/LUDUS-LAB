@@ -16,6 +16,9 @@ var placar = []
 
 var nome = "Player"
 
+// 0 - 100
+var volume
+
 // Carrega os mapas desbloqueados
 function carregar_mapas_desbloqueados()
 {
@@ -51,6 +54,16 @@ function carregar_saves()
 	carregar_nome()
 }
 
+function carregar_opcoes()
+{
+	const volume_salvo = localStorage.getItem("Volume")
+	if (volume_salvo != null){
+		volume = JSON.parse(volume_salvo)
+	} else {
+		volume = 50
+	}
+}
+
 // Salva os mapas desbloqueados
 function salvar_mapas_desbloqueados()
 {
@@ -69,6 +82,12 @@ function salvar_placar()
 function salvar_nome()
 {
 	localStorage.setItem("Nome", nome)
+}
+
+// Salva as opções
+function salvar_opcoes(volume)
+{
+	localStorage.setItem("Volume", volume)
 }
 
 // Tenta adicionar ao placar, assume que o placar já foi carregado
@@ -104,5 +123,7 @@ function desbloquear_mapa(nome_cenario)
 	salvar_mapas_desbloqueados()
 }
 
-export {carregar_saves, adicionar_ao_placar, desbloquear_mapa}
-export {mapas_desbloqueados, placar, nome}
+export {salvar_opcoes}
+export {carregar_saves, carregar_opcoes}
+export {adicionar_ao_placar, desbloquear_mapa}
+export {mapas_desbloqueados, placar, nome, volume}

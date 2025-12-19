@@ -275,9 +275,10 @@ function animar(tempo)
 
 setTimeout(() => {
 	saves.carregar_saves()
+	saves.carregar_opcoes()
 	perguntas.carregar_perguntas(cenario)
 	audio.tocar(audio.SONS.SEMAFORO_CLICK)
-	audio.tocar(audio.SONS.MUSICA, true)
+	audio.tocar(audio.SONS.MUSICA, true, saves.volume)
 	sinaleira.iniciar_contagem()
 	centralizar_no_player()
 	atualizar_pontuacao()

@@ -6,10 +6,11 @@ const SONS = Object.freeze({
 	MUSICA: "assets/som/musica.mp3",
 })
 
-function tocar(som, loop = false)
+function tocar(som, loop = false, volume=100)
 {
 	let audio = new Audio(som)
 	audio.loop = loop
+	audio.volume = volume / 100
 	audio.play();
 }
 
