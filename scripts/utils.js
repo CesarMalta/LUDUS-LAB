@@ -97,9 +97,9 @@ function criar_bots(bot_array, veiculo_array)
 	for (var i = 0; i < 3; i++){
 		const bot = new Bot({
 			veiculo: veiculo_array[i],
-			multiplicador_vel: 0.75,
-			chance_de_acerto: 0.85,
-			tempo_de_resposta: 2,
+			multiplicador_vel: 0.65,
+			chance_de_acerto: 0.65,
+			tempo_de_resposta: 4,
 			variacao_tempo: 0.5,
 		})
 		bot_array.push(bot)
